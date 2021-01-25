@@ -1,13 +1,14 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "gatsby-theme-yoshino",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
-  "version": "0.1.0",
-  "license": "0BSD",
+  "description": "A gatsby theme",
+  "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint --ext .js --ext .jsx src",
+    "lint:fix": "eslint --ext .js --ext .jsx src --fix",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -15,8 +16,14 @@
   },
   "dependencies": {
     "gatsby": "^2.26.1",
+    "gatsby-plugin-typography": "^2.11.0",
+    "pre-commit": "^1.2.2",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-fairy-gates": "^0.16.19",
+    "yoshino": "^0.8.25"
   },
   "devDependencies": {
     "prettier": "2.2.1"
@@ -25,7 +32,7 @@
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "pre-commit": [
+    "lint"
+  ]
 }
