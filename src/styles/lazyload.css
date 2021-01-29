@@ -1,0 +1,10 @@
+/* fade image in after load */
+.lazyload, .lazyloading {
+    opacity: 1;
+    background-color: #9e9e9e;
+}
+
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}

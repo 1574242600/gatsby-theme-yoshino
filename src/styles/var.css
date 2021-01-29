@@ -1,0 +1,12 @@
+:root {
+    --primary-color: #51b26d;
+    --background-color: #eeeeee;
+    --accent-text-color: #212121;
+    --divider-color: #bdbdbd80;
+    /* fuck, 为什么不能用js改prefers-color-scheme */
+    --dark-primary-color: #212121;
+    --dark-accent-color: #757575;
+    --dark-background-color: #616161;
+    --dark-accent-text-color: #eeeeee;
+    --dark-divider-color: #42424238;
+}

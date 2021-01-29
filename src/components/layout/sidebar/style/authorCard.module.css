@@ -1,0 +1,30 @@
+.text-center {
+    text-align: center;
+}
+
+.avatar>img {
+    margin-bottom: 0;
+}
+
+.avatar-circle {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.name {
+    color: var(--accent-text-color);
+    font-size: 20px;
+    padding-top: 4px;
+}
+
+.dark :global .name {
+    color: var(--dark-accent-text-color);
+}
+
+.description {
+    font-size: 15px;
+    word-wrap: break-word; 
+    word-break: break-all; 
+    white-space: normal;
+    color: rgba(0, 0, 0, 0.5);
+}

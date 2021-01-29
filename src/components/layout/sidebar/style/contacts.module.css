@@ -1,0 +1,11 @@
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 16px 8px 16px;
+}
+
+.contacts>a>i  {
+    font-size: 20px;
+    margin-left: 8px;
+}

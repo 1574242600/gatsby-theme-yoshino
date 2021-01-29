@@ -1,0 +1,34 @@
+.toolbar {
+    z-index: 1000;
+    background-color: var(--primary-color);
+    padding: 12px;
+}
+
+.toolbar-shadow {
+    box-shadow: 20px 0px 10px rgba(0, 0, 0, .5);
+    box-shadow: 20px 0px 10px rgba(0, 0, 0, .5);
+}
+
+.icon {
+    color: #eeeeee;
+    font-size: 32px;
+}
+
+.title {
+    color: #eeeeee;
+    font-size: 24px;
+    padding-left: 24px;
+}
+
+:global(.dark) .toolbar {
+    background-color: var(--dark-primary-color);
+}
+
+
+:global(.dark) .icon {
+    color: var(--dark-accent-text-color);
+}
+
+:global(.dark) .title {
+    color: var(--dark-accent-text-color);
+}

@@ -1,0 +1,5 @@
+@media (min-width: 992px) {
+    .sidebar-open-offset {
+        padding-left: 300px;
+    }
+}

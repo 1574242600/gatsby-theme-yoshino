@@ -1,0 +1,31 @@
+body {
+    background-color: var(--background-color);
+}
+
+body, .width-transition>div {
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+body[class='dark'] {
+    background-color: var(--dark-background-color)!important;
+}
+
+.yoshino-menu {
+    border-right: 0px !important;
+}
+
+.dark .yoshino-menu.yoshino-menu-vertical .yoshino-menu-item-active {
+    background: var(--dark-accent-color)!important;
+}
+
+.dark .yoshino-menu.yoshino-menu-vertical .yoshino-menu-item-active::after {
+    background: #cfbbbb!important;
+}
+
+.dark .yoshino-menu-item:hover:not(.yoshino-menu-item-disabled) {
+    color: var(--dark-accent-text-color)!important;
+}
+
+.dark .yoshino-menu-item-active {
+    color: var(--dark-accent-text-color)!important;
+}
