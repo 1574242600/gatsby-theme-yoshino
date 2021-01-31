@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AauthorCardStyle from '../style/authorCard.module.css';
+import React from "react";
+import PropTypes from "prop-types";
+import AauthorCardStyle from "../style/authorCard.module.css";
 
 export default function Description(props) {
-    const { description, style } = props;
+    const { style } = props;
 
     return (
         <span className={ AauthorCardStyle.description } style={style}> 
-            { description } 
+            { props.children } 
         </span>
     )
     ;
 }
 
 Description.propTypes = {
-    description: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     style: PropTypes.object
 };

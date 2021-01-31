@@ -1,5 +1,5 @@
-import React from 'react';
-import SidebarStyle from '../style/sidebar.module.css';
+import React from "react";
+import SidebarStyle from "../style/sidebar.module.css";
 
 export default function Overlay() {
     return (

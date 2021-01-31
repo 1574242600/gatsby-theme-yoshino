@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AauthorCardStyle from '../style/authorCard.module.css';
+import React from "react";
+import PropTypes from "prop-types";
+import AauthorCardStyle from "../style/authorCard.module.css";
 
 export default function Avatar(props) {
     const { 
@@ -11,10 +11,10 @@ export default function Avatar(props) {
 
     return (
         <div 
-            className={ AauthorCardStyle.avatar + ' ' + AauthorCardStyle.textCenter  }
+            className={ AauthorCardStyle.avatar + " " + AauthorCardStyle.textCenter  }
         >
             <img 
-                className={ AauthorCardStyle.avatarCircle + ' lazyloading' } 
+                className={ AauthorCardStyle.avatarCircle + " lazyloading" } 
                 src={ avatarSrc } 
                 width={ width }
                 height={ height }

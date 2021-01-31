@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Tooltip from 'yoshino/lib/Tooltip/index';
+import React from "react";
+import PropTypes from "prop-types";
+import Tooltip from "yoshino/lib/Tooltip/index";
 
 export default function contact(props) {
     const { title, url } = props;
@@ -14,5 +14,6 @@ export default function contact(props) {
 
 contact.propTypes = {
     title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired
 };

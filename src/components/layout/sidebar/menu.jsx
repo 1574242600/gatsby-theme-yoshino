@@ -1,15 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import YMenu from 'yoshino/lib/Menu/index';
-import { navigate } from 'gatsby';
-import { isLg } from '../../../global';
+import React from "react";
+import PropTypes from "prop-types";
+import YMenu from "yoshino/lib/Menu/index";
+import { navigate } from "gatsby";
+import { isLg } from "../../../global";
 
 export default class Menu extends React.Component {
     //todo 其他菜单  i18n
     constructor(props) {
         super(props);
         this.state = {
-            activeKey: Menu.paths.indexOf(typeof window !== 'undefined' && window.location.pathname) + ''
+            activeKey: window.location.pathname.slice(0,6) === "/page/" 
+                ? "0"
+                : Menu.paths.indexOf(typeof window !== "undefined" && window.location.pathname) + ""
         };
 
         this.updateActiveKey = this.updateActiveKey.bind(this);
@@ -22,8 +24,8 @@ export default class Menu extends React.Component {
     }
 
     renderMainItems() {
-        const itemStyle = { overflow: 'visible' };
-        return ['Home', 'Archives', 'About', 'Link'].map((title, index) => {
+        const itemStyle = { overflow: "visible" };
+        return ["Home", "Archives", "About", "Link"].map((title, index) => {
             return <YMenu.Item key={ index } style={itemStyle}>{ title }</YMenu.Item>;
         });
     }
@@ -49,10 +51,10 @@ export default class Menu extends React.Component {
 }
 
 Menu.paths = [
-    '/',
-    '/archives',
-    '/about',
-    '/link'
+    "/",
+    "/archives",
+    "/about",
+    "/link"
 ];
 
 Menu.propTypes = {

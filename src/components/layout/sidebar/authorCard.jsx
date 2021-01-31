@@ -1,8 +1,8 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Avatar from './authorCard/avatar';
-import Name from './authorCard/name';
-import Description from './authorCard/description';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Avatar from "./authorCard/avatar";
+import Name from "./authorCard/name";
+import Description from "./authorCard/description";
 
 export default function AuthorCard() {
     const { site: { siteMetadata } } = useStaticQuery(
@@ -20,7 +20,7 @@ export default function AuthorCard() {
 
     return (
         <div>
-            <div style={ { margin: '16px' } }>
+            <div style={ { margin: "16px" } }>
                 <Avatar
                     src={ siteMetadata.avatar }
                     width={ 100 }
@@ -28,7 +28,7 @@ export default function AuthorCard() {
                 />
 
                 <Name name={ siteMetadata.author }>
-                    <Description description={ siteMetadata.description } />
+                    <Description> { siteMetadata.description } </Description>
                 </Name>
             </div>
         </div>

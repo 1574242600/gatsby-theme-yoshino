@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import AuthorCard from './sidebar/authorCard';
-import SidebarStyle from './style/sidebar.module.css';
-import Overlay from './sidebar/overlay';
-import Menu from './sidebar/menu';
-import Contacts from './sidebar/contacts';
-import { isLg } from '../../global';
+import React from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
+import AuthorCard from "./sidebar/authorCard";
+import SidebarStyle from "./style/sidebar.module.css";
+import Overlay from "./sidebar/overlay";
+import Menu from "./sidebar/menu";
+import Contacts from "./sidebar/contacts";
+import { isLg } from "../../global";
 
 export default class Sidebar extends React.Component {
 
     constructor (props) {
         super(props);
         this.state = {
-            activeKey: '0'
+            activeKey: "0"
         };
         
         this.startXYT = {};
@@ -45,13 +45,13 @@ export default class Sidebar extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('touchstart', this.hanleTouchStart);
-        window.addEventListener('touchend', this.hanleTouchEnd);
+        window.addEventListener("touchstart", this.hanleTouchStart);
+        window.addEventListener("touchend", this.hanleTouchEnd);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('touchstart', this.hanleTouchStart);
-        window.removeEventListener('touchend', this.hanleTouchEnd);
+        window.removeEventListener("touchstart", this.hanleTouchStart);
+        window.removeEventListener("touchend", this.hanleTouchEnd);
     }
 
     render() {
@@ -64,7 +64,7 @@ export default class Sidebar extends React.Component {
             : undefined;
 
         return (
-            <div className={ classNames.join(' ') } 
+            <div className={ classNames.join(" ") } 
                 style={{
                     /* 解决手机浏览器底部地址栏导致的侧边栏上移问题  */
                     maxHeight: typeof window !== undefined && window.innerHeight
@@ -75,7 +75,7 @@ export default class Sidebar extends React.Component {
                     { OverlayPortal }
                 </div>
 
-                <div style={{ minHeight: 'calc(100% - 50px)' }}>
+                <div style={{ minHeight: "calc(100% - 50px)" }}>
                     <AuthorCard />
                     <div className={ SidebarStyle.divider } ></div>
                     <Menu onRouteChange={ onOverlayClick } />

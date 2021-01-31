@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import LayoutStyle from './layout/style/layout.module.css';
-import Header from './layout/header';
-import Sidebar from './layout/sidebar';
-import { isLg } from '../global';
+import React from "react";
+import PropTypes from "prop-types";
+import LayoutStyle from "./layout/style/layout.module.css";
+import Header from "./layout/header";
+import Sidebar from "./layout/sidebar";
+import { isLg } from "../global";
 
 function setDarkMode(darkMode) {
-    const _document = typeof document !== 'undefined' && document.body;
+    const _document = typeof document !== "undefined" && document.body;
     if ( darkMode ) {
-        _document.classList.add('dark');
+        _document.classList.add("dark");
     } else {
-        _document.classList.remove('dark');
+        _document.classList.remove("dark");
     }
 }
 
@@ -37,9 +37,9 @@ export default class Layout extends React.Component {
     }
 
     getDarkModeStatus() {
-        const _window = typeof window !== 'undefined' && window;
-        const OSDarkStatus = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const userDarkStatus = _window.localStorage.getItem('darkMode');
+        const _window = typeof window !== "undefined" && window;
+        const OSDarkStatus = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const userDarkStatus = _window.localStorage.getItem("darkMode");
 
         if (userDarkStatus === null && OSDarkStatus) {
             setDarkMode(true);
@@ -47,7 +47,7 @@ export default class Layout extends React.Component {
         }
 
         if ( userDarkStatus !== null) { 
-            setDarkMode(userDarkStatus == 'true');
+            setDarkMode(userDarkStatus == "true");
             return userDarkStatus; 
         }
 
@@ -62,8 +62,8 @@ export default class Layout extends React.Component {
 
     handleDarkIconClick() {
         const darkMode = !this.state.darkMode;
-        typeof window !== 'undefined' && 
-            window.localStorage.setItem('darkMode', darkMode);
+        typeof window !== "undefined" && 
+            window.localStorage.setItem("darkMode", darkMode);
         
         this.setState({
             darkMode: darkMode,
@@ -76,7 +76,7 @@ export default class Layout extends React.Component {
 
         //todo: 路由过渡 https://www.ruoduan.cn/Gatsby-layout/
         return (
-            <div className={'width-transition'}>
+            <div className={"width-transition"}>
                 <Header 
                     onMenuIconClick={ this.handleMenuIconClick } 
                     onDarkIconClick={ this.handleDarkIconClick }

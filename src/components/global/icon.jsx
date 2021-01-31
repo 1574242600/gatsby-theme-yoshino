@@ -1,28 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import IconStyle from './style/icon.module.css';
+import React from "react";
+import PropTypes from "prop-types";
+import IconStyle from "./style/icon.module.css";
 
 export default class Icon extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            svgHtml: ''
+            svgHtml: ""
         };
     }
 
     componentDidMount() {
         const { src } = this.props;
 
-        fetch(`./icon${src}.svg`)
+        fetch(`/icon${src}.svg`)
             .then((data) => data.text())
             .then((svgHtml) => {
                 this.setState({
                     svgHtml: svgHtml
                 });
             }).catch((e) => {
-                console.error(e);
+                if (e) { console.error(e); }
                 this.setState({
-                    svgHtml: 'load icon error'
+                    svgHtml: "load icon error"
                 });
             });
     }
@@ -34,7 +34,7 @@ export default class Icon extends React.Component {
         return (
             <i 
                 className={ className 
-                    ? IconStyle.icon + ' ' + className 
+                    ? IconStyle.icon + " " + className 
                     : IconStyle.icon 
                 }
                 dangerouslySetInnerHTML={ { __html: svgHtml } }

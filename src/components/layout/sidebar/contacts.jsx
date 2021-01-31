@@ -1,9 +1,9 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import ContactStyle from './style/contacts.module.css';
-import Contact from './contacts/contact';
-import Icon from '../../global/icon';
-import { isMobile } from '../../../global';
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import ContactStyle from "./style/contacts.module.css";
+import Contact from "./contacts/contact";
+import Icon from "../../global/icon";
+import { isMobile } from "../../../global";
 
 function getContactUrl(name, id) {
     const urls = {
@@ -51,7 +51,7 @@ export default function Contacts() {
         const { id, name, url } = contact;
         if (name === null) { return undefined; }
 
-        if (typeof id === 'string' && url === null) {
+        if (typeof id === "string" && url === null) {
             return renderContact(name, getContactUrl(name, id));
         } else {
             const { name, url } = contact;
