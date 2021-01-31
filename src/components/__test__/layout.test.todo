@@ -35,8 +35,9 @@ describe("Layout 组件", () => {
 
     it("快照", () => {
         {/*
-            yoshino ui 引用classnames包 有问题 翻译后报错 
+            yoshino ui 引用classnames包的方法 有问题 翻译后报错
             TypeError: classNames is not a function
+            
             可能的解决方法： https://github.com/JedWatson/classnames/issues/185
         */}
         const tree = renderer

@@ -44,7 +44,7 @@ describe("Icon 组件", () => {
         // eslint-disable-next-line no-undef
         global.fetch = jest.fn();
         global.fetch
-            .mockReturnValueOnce(Promise.resolve())
+            .mockReturnValueOnce(Promise.resolve( { text: () => Promise.resolve("svg succeed")} ))
             .mockReturnValueOnce(Promise.resolve( { text: () => Promise.resolve("svg succeed")} ))
             .mockReturnValueOnce(Promise.resolve( { text: () => Promise.reject() } ));
             

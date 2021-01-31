@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import Contact from "../contact";
 
 describe("contact 组件", () => {
-
+//原因跟layout的测试一样
     it("快照", () => {
         const tree = renderer
             .create(<Contact title={"test"} url={"/test"}>test</Contact>)
