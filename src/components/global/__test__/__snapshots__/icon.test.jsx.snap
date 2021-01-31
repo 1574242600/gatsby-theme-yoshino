@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon 组件 快照 1`] = `
+<i
+  className="icon"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "",
+    }
+  }
+  src="/logo/start"
+/>
+`;

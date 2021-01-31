@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar 组件 快照 1`] = `
+<div
+  className="avatar textCenter"
+>
+  <img
+    className="avatarCircle lazyloading"
+    height={100}
+    src="/avatar.jpg"
+    width={100}
+  />
+</div>
+`;

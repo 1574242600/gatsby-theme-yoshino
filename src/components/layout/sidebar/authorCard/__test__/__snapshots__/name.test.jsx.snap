@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Name 组件 快照 1`] = `
+<div
+  className="textCenter name"
+>
+  test
+  <br />
+  <div>
+    test
+  </div>
+</div>
+`;

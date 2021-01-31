@@ -1,0 +1,47 @@
+import React from "react";
+import renderer from "react-test-renderer";
+import Layout from "../layout";
+import { useStaticQuery } from "gatsby";
+
+jest.mock("gatsby");
+
+describe("Layout 组件", () => {
+    beforeAll(() => {
+        Object.defineProperty(window, "matchMedia", {
+            writable: true,
+            value: jest.fn().mockImplementation(query => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(),
+                removeListener: jest.fn(),
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            }))
+        });
+
+        useStaticQuery.mockReturnValue({
+            "site": {
+                "siteMetadata": {
+                    "title": "test",
+                    "avatar": "//test.test",
+                    "author": "test",
+                    "description": "test"
+                }
+            }
+        });
+    });
+
+    it("快照", () => {
+        {/*
+            yoshino ui 引用classnames包 有问题 翻译后报错 
+            TypeError: classNames is not a function
+            可能的解决方法： https://github.com/JedWatson/classnames/issues/185
+        */}
+        const tree = renderer
+            .create(<Layout></Layout>) 
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+});
