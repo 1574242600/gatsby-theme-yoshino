@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 const { createFilePath } = require("gatsby-source-filesystem");
-const { paginate, createPagePerItem } = require("gatsby-awesome-pagination");
+const { paginate } = require("gatsby-awesome-pagination");
 
 exports.onCreateWebpackConfig = ({ actions }) => {
-    
+
     actions.setWebpackConfig({
         resolve: {
             modules: [__dirname + "/src", "node_modules"],
@@ -18,7 +18,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         createNodeField({
             node,
             name: "slug",
-            value: createFilePath({ node, getNode, basePath: "pages/post" }),
+            value: "/post" + createFilePath({ node, getNode, basePath: "pages/post" }),
         });
     }
 };
@@ -36,8 +36,17 @@ exports.createPages = ({ actions, graphql }) => {
             itemsPerPage: 10,
             pathPrefix: ({ pageNumber }) => pageNumber === 0 ? "/" : "/page"
         });
-    });
 
+        postItems.forEach(({ node }) => {
+            //console.log(node)
+            createPage({
+                path: node.fields.slug,
+                component: require.resolve("./src/templates/post.jsx"),
+                context: {},
+            });
+        });
+        
+    });
 };
 
 

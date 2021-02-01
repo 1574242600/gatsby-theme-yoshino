@@ -2,7 +2,9 @@ import "lazysizes";
 import "./src/styles/var.css";
 import "./src/styles/global.css";
 import "./src/styles/lazyload.css";
+import "./src/styles/typography.css";
 import "yoshino/lib/Menu/style/index";
+import "yoshino/lib/Button/style/index";
 import "yoshino/lib/Tooltip/style/index";
 import "yoshino/lib/common/reset.css";
 

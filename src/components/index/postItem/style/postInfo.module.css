@@ -1,0 +1,21 @@
+.post-info {
+    font-size: 12px;
+    text-align: center;
+    color: var(--post-info-text-color);
+}
+.post-info>span {
+   margin: 0px 4px 0px 4px;
+}
+
+:global(.dark) .post-info { 
+    color: var(--dark-post-info-text-color)!important;
+}
+
+.post-info>span>i {
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+:global(.dark) .post-info>span>i {
+    color: var(--dark-primary-color)!important;
+}

@@ -1,0 +1,6 @@
+.index {
+    display: flex;
+    margin: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

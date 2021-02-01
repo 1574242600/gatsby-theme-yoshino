@@ -1,18 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-
+import IndexStyle from "./style/index.module.css";
+import PostItem from "components/index/postItem";
 export default class Home extends React.Component {
 
     renderPostItem(data) {
-        const { 
-            id, 
-            frontmatter: { 
-                title 
-            } 
-        } = data;
+        const { id, ...other } = data;
 
-        return <div key={ id }>{ title }</div>;
+        return <PostItem key={ id } data={other} />;
     }
 
     render() {
@@ -26,9 +22,9 @@ export default class Home extends React.Component {
         } = this.props;
 
         return (
-            <div> 
+            <div className={"global-transition " + IndexStyle.index }>
                 { edges.map((postData) => this.renderPostItem(postData.node)) }
-                { JSON.stringify(pageContext ) }
+                { /*JSON.stringify(pageContext )*/ }
             </div>
         );
     }
@@ -40,12 +36,8 @@ Home.propTypes = {
 };
 
 export const query = graphql`
-    query indexQuery ($skip: Int!, $limit: Int!) {
-        allMarkdownRemark (
-          sort: { fields: [frontmatter___date], order: DESC }
-          skip: $skip 
-          limit: $limit
-        ) {
+    query indexQuery($skip: Int!, $limit: Int!) {
+        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, skip: $skip, limit: $limit) {
             edges {
                 node {
                     id
@@ -57,9 +49,11 @@ export const query = graphql`
                         title
                         update
                     }
+                    fields {
+                        slug
+                    }
                 }
             }
-        }
+        }  
     }
-  
 `;

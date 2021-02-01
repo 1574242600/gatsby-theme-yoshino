@@ -11,4 +11,11 @@
     --dark-accent-background-color:#757575;
     --dark-accent-text-color: #eeeeee;
     --dark-divider-color: #42424238;
+
+    --post-info-text-color: #555555;
+    --post-title-color: #444;
+    --dark-post-info-text-color: #333;
+    --dark-post-title-color: #212121;
+
+    --more-button-color: #2196f3;
 }
