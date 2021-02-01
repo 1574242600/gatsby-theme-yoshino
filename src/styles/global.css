@@ -29,6 +29,7 @@ body[class='dark'] {
 }
 
 .dark .yoshino-menu.yoshino-menu-vertical .yoshino-menu-item-active {
+    --dark-accent-color: #9e9e9e80;
     background: var(--dark-accent-color)!important;
 }
 
