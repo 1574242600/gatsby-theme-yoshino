@@ -20,6 +20,10 @@ body[class='dark'] {
     background-color: var(--dark-background-color)!important;
 }
 
+.body-locked {
+    overflow: hidden;
+}
+
 .yoshino-menu {
     border-right: 0px !important;
 }

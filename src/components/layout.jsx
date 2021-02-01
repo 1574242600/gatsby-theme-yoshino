@@ -5,13 +5,23 @@ import Header from "./layout/header";
 import Sidebar from "./layout/sidebar";
 import { isLg } from "../global";
 
-function setDarkMode(darkMode) {
+function modifyBodyClass (className, mode) {
     const _document = typeof document !== "undefined" && document.body;
-    if ( darkMode ) {
-        _document.classList.add("dark");
-    } else {
-        _document.classList.remove("dark");
+    if ( mode === "add" ) {
+        _document.classList.add(className);
     }
+
+    if (mode === "remove") {
+        _document.classList.remove(className);
+    }
+}
+
+function modifyDarkMode(darkMode) {
+    modifyBodyClass("dark", darkMode ? "add": "remove");
+}
+
+function modifyBodyLocked(locked) {
+    modifyBodyClass("body-locked", locked ? "add": "remove");
 }
 
 export default class Layout extends React.Component {
@@ -29,7 +39,7 @@ export default class Layout extends React.Component {
     // eslint-disable-next-line no-unused-vars
     shouldComponentUpdate(_, nextState) {
         if (this.state.darkMode !== nextState.darkMode) {
-            setDarkMode(nextState.darkMode);
+            modifyDarkMode(nextState.darkMode);
             return false;
         }
 
@@ -42,12 +52,12 @@ export default class Layout extends React.Component {
         const userDarkStatus = _window.localStorage.getItem("darkMode");
 
         if (userDarkStatus === null && OSDarkStatus) {
-            setDarkMode(true);
+            modifyDarkMode(true);
             return true;
         }
 
         if ( userDarkStatus !== null) { 
-            setDarkMode(userDarkStatus == "true");
+            modifyDarkMode(userDarkStatus == "true");
             return userDarkStatus; 
         }
 
@@ -55,8 +65,11 @@ export default class Layout extends React.Component {
     }
 
     handleMenuIconClick() {
+        const sidebarOpen = !this.state.sidebarOpen;
+
+        if ( !isLg ) { modifyBodyLocked(sidebarOpen); }
         this.setState({
-            sidebarOpen: !this.state.sidebarOpen,
+            sidebarOpen: sidebarOpen,
         });
     }
 
@@ -76,14 +89,16 @@ export default class Layout extends React.Component {
 
         //todo: 路由过渡 https://www.ruoduan.cn/Gatsby-layout/
         return (
-            <div className={"width-transition"}>
+            <div className={"global-transition"}>
                 <Header 
                     onMenuIconClick={ this.handleMenuIconClick } 
                     onDarkIconClick={ this.handleDarkIconClick }
                 />
                 <Sidebar open={ sidebarOpen } onOverlayClick={ this.handleMenuIconClick } />
 
-                <div className={ sidebarOpen ? LayoutStyle.sidebarOpenOffset : undefined}> 
+                <div className={ LayoutStyle.pages + " " 
+                        + (sidebarOpen ? LayoutStyle.sidebarOpenOffset : "") }
+                > 
                     { children }
                 </div>
             </div>
