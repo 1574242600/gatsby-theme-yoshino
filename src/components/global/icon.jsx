@@ -10,11 +10,41 @@ export default class Icon extends React.Component {
         };
     }
 
+    fetchSvg(src) {
+        const _window = typeof window !== "undefined" && window;
+        if (_window.svgCaches === undefined) { _window.svgCaches = new Map(); }
+
+        const blobUrl = _window.svgCaches.get(src);
+
+        if (blobUrl === undefined) {
+
+            const asyncFunc =  window.fetch(src)
+                .then((data) => {
+                    const clone = data.clone();
+
+                    clone.blob().then(svgBlob => {
+                        _window.svgCaches.set(src, URL.createObjectURL(svgBlob));
+                    });
+
+                    return data.text();
+                });
+            
+            _window.svgCaches.set(src, asyncFunc);
+            return asyncFunc;
+        }
+
+        if (typeof blobUrl === "string" ) {
+            return window.fetch(blobUrl);
+        }
+
+        return blobUrl;
+    }
+
     componentDidMount() {
         const { src } = this.props;
 
-        fetch(`/icon${src}.svg`)
-            .then((data) => data.text())
+        this.fetchSvg(`/icon${src}.svg`)
+            .then((data) => (typeof data === "string") ? data : data.text())
             .then((svgHtml) => {
                 this.setState({
                     svgHtml: svgHtml
@@ -32,10 +62,10 @@ export default class Icon extends React.Component {
         const { svgHtml } = this.state;
 
         return (
-            <i 
-                className={ className 
-                    ? IconStyle.icon + " " + className 
-                    : IconStyle.icon 
+            <i
+                className={ className
+                    ? IconStyle.icon + " " + className
+                    : IconStyle.icon
                 }
                 dangerouslySetInnerHTML={ { __html: svgHtml } }
                 { ...other }
