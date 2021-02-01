@@ -2,7 +2,17 @@ body {
     background-color: var(--background-color);
 }
 
-body, .width-transition>div {
+body ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: #8e535300;
+}
+
+body ::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.2);
+}
+
+body, .global-transition>div {
     transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
