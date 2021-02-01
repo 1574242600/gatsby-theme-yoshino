@@ -1,7 +1,15 @@
 /* eslint-disable no-undef */
-const { createFilePath }  =  require("gatsby-source-filesystem");
-const{ paginate, createPagePerItem } =  require("gatsby-awesome-pagination");
+const { createFilePath } = require("gatsby-source-filesystem");
+const { paginate, createPagePerItem } = require("gatsby-awesome-pagination");
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+    
+    actions.setWebpackConfig({
+        resolve: {
+            modules: [__dirname + "/src", "node_modules"],
+        },
+    });
+};
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions;
