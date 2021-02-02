@@ -6,6 +6,7 @@ import SidebarStyle from "./style/sidebar.module.css";
 import Overlay from "./sidebar/overlay";
 import Menu from "./sidebar/menu";
 import Contacts from "./sidebar/contacts";
+import Footer from "./sidebar/footer";
 import { isLg } from "../../global";
 
 export default class Sidebar extends React.Component {
@@ -75,13 +76,15 @@ export default class Sidebar extends React.Component {
                     { OverlayPortal }
                 </div>
 
-                <div style={{ minHeight: "calc(100% - 50px)" }}>
+                <div style={{ minHeight: "calc(100% - 125px)" }}>
                     <AuthorCard />
                     <div className={ SidebarStyle.divider } ></div>
                     <Menu onRouteChange={ onOverlayClick } />
                 </div> 
 
                 <Contacts />
+                <div className={ SidebarStyle.divider } ></div>
+                <Footer />
             </div>
         );
     }

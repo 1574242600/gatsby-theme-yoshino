@@ -1,0 +1,13 @@
+.footer {
+    color: #555;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.footer>div {
+    text-align: center;
+}
+
+:global(.dark) .footer {
+    color: var(--dark-text-color)!important;
+}
