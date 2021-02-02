@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
+import Pagination from "yoshino/lib/Pagination/index";
 import IndexStyle from "./style/index.module.css";
 import PostItem from "components/index/postItem";
 export default class Home extends React.Component {
@@ -22,9 +23,24 @@ export default class Home extends React.Component {
         } = this.props;
 
         return (
-            <div className={"global-transition " + IndexStyle.index }>
-                { edges.map((postData) => this.renderPostItem(postData.node)) }
-                { /*JSON.stringify(pageContext )*/ }
+            <div className={ "global-transition" }>
+                <div className={ IndexStyle.index }>
+                    { edges.map((postData) => this.renderPostItem(postData.node)) }
+                </div>
+                <Pagination
+                    total={ pageContext.numberOfPages * pageContext.limit } 
+                    current={ pageContext.humanPageNumber }
+                    pageSize={ pageContext.limit }
+                    className={ IndexStyle.pagination }
+                    onChange={(current) => {
+                        if ( current === 1) { 
+                            navigate("/"); 
+                            return ;
+                        }
+
+                        navigate(`/page/${current}`);
+                    }}
+                />
             </div>
         );
     }

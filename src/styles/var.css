@@ -1,6 +1,7 @@
 :root {
     --primary-color: #51b26d;
     --background-color: #e0e0e0;
+    --text-color: #555;
     --accent-background-color: #eeeeee;
     --accent-text-color: #212121;
     --divider-color: #bdbdbd80;
@@ -9,6 +10,7 @@
     --dark-accent-color: #9e9e9e;
     --dark-background-color: #616161;
     --dark-accent-background-color:#757575;
+    --dark-text-color: #333;
     --dark-accent-text-color: #eeeeee;
     --dark-divider-color: #42424238;
 
