@@ -4,6 +4,8 @@ import { graphql, navigate } from "gatsby";
 import Pagination from "yoshino/lib/Pagination/index";
 import IndexStyle from "./style/index.module.css";
 import PostItem from "components/index/postItem";
+import Seo from "components/global/seo";
+
 export default class Home extends React.Component {
 
     renderPostItem(data) {
@@ -17,6 +19,11 @@ export default class Home extends React.Component {
             data: { 
                 allMarkdownRemark: {  
                     edges
+                },
+                site: {
+                    siteMetadata: {
+                        description
+                    }
                 }
             },
             pageContext
@@ -24,6 +31,16 @@ export default class Home extends React.Component {
 
         return (
             <div className={ "global-transition" }>
+                <Seo 
+                    title={ 
+                        pageContext.humanPageNumber === 1 
+                            ? undefined 
+                            : `第${pageContext.humanPageNumber}页`
+                    }
+                >
+                    <meta name="description" content={description} />
+                </Seo>
+
                 <div className={ IndexStyle.index }>
                     { edges.map((postData) => this.renderPostItem(postData.node)) }
                 </div>
@@ -70,6 +87,11 @@ export const query = graphql`
                     }
                 }
             }
-        }  
+        } 
+        site {
+            siteMetadata {
+                description
+            }
+        }
     }
 `;
