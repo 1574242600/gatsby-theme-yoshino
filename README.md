@@ -1,4 +1,4 @@
-# gatsby-theme-yoshino
+# blog
 由  [yoshino](https://github.com/1574242600/yoshino) 重写而来
 
 ## 使用开源项目
