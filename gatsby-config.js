@@ -23,7 +23,7 @@ module.exports = {
                 请将logo矢量图放在/static/icon/logo/ 与 {name} 同名
                 请确保contacts数组中 至少一条对象有id属性 至少一条对象有url属性 
             */
-           
+
             { url: "null" }
             //{ name: 'discord', url: '' },
             //{ name: 'fackbook', url: '' },
@@ -48,8 +48,16 @@ module.exports = {
         {
             resolve: "gatsby-transformer-remark",
             options: {
-                "excerpt_separator": "<!--more-->"
+                excerpt_separator: "<!--more-->",
+                plugins: [{
+                    resolve: "gatsby-remark-vscode",
+                    options: {
+                        theme: "dracula-theme-from-intellij",
+                        extensions: ["dracula-theme-from-intellij"],
+                        wrapperClassName: "code-line"
+                    }
+                }]
             }
         }
-    ]
+    ],
 };
