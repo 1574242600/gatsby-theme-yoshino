@@ -68,7 +68,7 @@ export default class Sidebar extends React.Component {
             <div className={ classNames.join(" ") } 
                 style={{
                     /* 解决手机浏览器底部地址栏导致的侧边栏上移问题  */
-                    maxHeight: typeof window !== undefined && window.innerHeight
+                    maxHeight: typeof window !== "undefined" && window.innerHeight
                 }}
             >
                 {/*  移动端 侧边栏打开时的的遮盖层*/}
