@@ -20,3 +20,7 @@
     color: var(--dark-accent-text-color)!important;
 }
 
+.dark .yoshino-pagination-item-active, .dark .yoshino-pagination-item:hover {
+    border-color: #222;
+    color: #222;
+}

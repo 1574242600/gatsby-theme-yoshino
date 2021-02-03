@@ -21,8 +21,14 @@
 
 .more-button>button {
     color: #fff;
-    border-color: var(--more-button-color)!important;
-    background-color: var(--more-button-color)!important;
+    border-color: #2196f3!important;
+    background-color: #2196f3!important;
+}
+
+:global(.dark) .more-button>button {
+    color: #fff;
+    border-color: #222!important;
+    background-color: #222!important;
 }
 
 :global(.dark) .post-item>h2 { 

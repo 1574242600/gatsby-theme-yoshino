@@ -1,0 +1,22 @@
+.dark .post-body {
+    color: #333!important;
+}
+
+.dark .post-body a:active, a:focus, a:hover {
+    text-decoration: underline!important;
+    color: #222!important;
+}
+
+.dark .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
+    border-left: 4px solid #111!important;
+}
+
+.dark blockquote {
+    color: #bdbdbd;
+    border-left: 4px solid #616161!important;
+    background-color: #e3f2fd2c;
+}
+
+.dark .post-body hr {
+    background-color: #555;
+}

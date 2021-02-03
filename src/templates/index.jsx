@@ -41,7 +41,7 @@ export default class Home extends React.Component {
                     <meta name="description" content={description} />
                 </Seo>
 
-                <div className={ IndexStyle.index }>
+                <div className={ IndexStyle.index + " global-transition" }>
                     { edges.map((postData) => this.renderPostItem(postData.node)) }
                 </div>
                 <Pagination
