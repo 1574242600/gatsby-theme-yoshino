@@ -29,7 +29,7 @@ export default class Layout extends React.Component {
         super(props);
         this.state = {
             sidebarOpen: isLg ? true : false,
-            darkMode: this.getDarkModeStatus(),
+            darkMode: false,
         };
 
         this.handleMenuIconClick = this.handleMenuIconClick.bind(this);
@@ -48,17 +48,15 @@ export default class Layout extends React.Component {
 
     getDarkModeStatus() {
         const _window = typeof window !== "undefined" && window;
-        const OSDarkStatus = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const OSDarkStatus = _window.matchMedia("(prefers-color-scheme: dark)").matches;
         const userDarkStatus = _window.localStorage.getItem("darkMode");
 
         if (userDarkStatus === null && OSDarkStatus) {
-            modifyDarkMode(true);
             return true;
         }
 
         if ( userDarkStatus !== null) { 
-            modifyDarkMode(userDarkStatus == "true");
-            return userDarkStatus; 
+            return userDarkStatus === "true"; 
         }
 
         return false;
@@ -80,6 +78,14 @@ export default class Layout extends React.Component {
         
         this.setState({
             darkMode: darkMode,
+        });
+    }
+
+    componentDidMount() {
+        const darkMode = this.getDarkModeStatus();
+
+        this.setState({
+            darkMode: darkMode
         });
     }
 
