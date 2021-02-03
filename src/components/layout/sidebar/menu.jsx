@@ -6,12 +6,11 @@ import { isLg } from "../../../global";
 
 export default class Menu extends React.Component {
     //todo 其他菜单  i18n
-    constructor(props) {
+    constructor (props) {
         super(props);
+
         this.state = {
-            activeKey: window.location.pathname.slice(0,6) === "/page/" 
-                ? "0"
-                : Menu.paths.indexOf(typeof window !== "undefined" && window.location.pathname) + ""
+            activeKey: "0"
         };
 
         this.updateActiveKey = this.updateActiveKey.bind(this);
@@ -26,7 +25,17 @@ export default class Menu extends React.Component {
     renderMainItems() {
         const itemStyle = { overflow: "visible" };
         return ["Home", "Archives", "About", "Link"].map((title, index) => {
-            return <YMenu.Item key={ index } style={itemStyle}>{ title }</YMenu.Item>;
+            return <YMenu.Item key={ index } style={ itemStyle }>{ title }</YMenu.Item>;
+        });
+    }
+
+    componentDidMount() {
+        const activeKey = window.location.pathname.slice(0, 6) === "/page/"
+            ? "0"
+            : Menu.paths.indexOf(window.location.pathname) + "";
+        
+        this.setState({
+            activeKey: activeKey
         });
     }
 
@@ -36,14 +45,14 @@ export default class Menu extends React.Component {
 
         return (
             <YMenu
-                activeKey={activeKey}
+                activeKey={ activeKey }
                 onSelect={ (key) => {
                     this.updateActiveKey(key);
                     navigate(Menu.paths[key]);
                     //移动端： 延迟关闭侧边栏
-                    if ( !isLg ) { setTimeout(() => handleSelected(), 320) ;}
-                }}
-            >  
+                    if (!isLg) { setTimeout(() => handleSelected(), 320); }
+                } }
+            >
                 { this.renderMainItems() }
             </YMenu>
         );
