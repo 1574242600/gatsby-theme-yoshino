@@ -8,3 +8,7 @@ export function isMobile() {
     }
     return false;
 }
+
+export function toLazyLoadImg(htmlStr) {
+    return htmlStr.replace(/<img src=/, "<img class=\"lazyload\" data-src=");
+}
