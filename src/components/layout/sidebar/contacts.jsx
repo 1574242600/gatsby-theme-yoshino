@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import ContactStyle from "./style/contacts.module.css";
 import Contact from "./contacts/contact";
 import Icon from "../../global/icon";
-import { isMobile } from "../../../global";
+import { isMobile as getIsMobile } from "../../../global";
 
 function getContactUrl(name, id) {
     const urls = {
         github: `https://github.com/${id}`,
         telegram: `https://t.me/${id}`,
         //fuck qq
-        qq:  isMobile() 
-            ? `mqqwpa://im/chat?chat_type=wpa&uin=${id}&version=1&src_type=web`
-            : `tencent://message/?uin=${id}&Site=&Menu=yes`,
+        qq: [
+            `mqqwpa://im/chat?chat_type=wpa&uin=${id}&version=1&src_type=web`,
+            `tencent://message/?uin=${id}&Site=&Menu=yes`
+        ],
 
         twitter: `https://twitter.com/${id}`,
     };
@@ -23,8 +24,8 @@ function getContactUrl(name, id) {
 function renderContact(name, url) {
     return (
         <Contact key={ name } title={ name } url={ url }>
-            <Icon 
-                src={ `/logo/${name}` } 
+            <Icon
+                src={ `/logo/${name}` }
             />
         </Contact>
     );
@@ -47,20 +48,30 @@ export default function Contacts() {
         `
     );
 
-    const render =  contacts.map((contact) => {
+    const [ isMobile, setIsMobile ] = useState(0);
+
+    useEffect(() => {
+        setIsMobile(getIsMobile());
+    });
+
+    const render = contacts.map((contact) => {
         const { id, name, url } = contact;
         if (name === null) { return undefined; }
 
         if (typeof id === "string" && url === null) {
+            if ( name === "qq" ) {
+                return renderContact(name, getContactUrl(name, id)[ isMobile ? 0 : 1 ]);
+            }
+
             return renderContact(name, getContactUrl(name, id));
         } else {
             const { name, url } = contact;
             return renderContact(name, url);
         }
-    }).filter((renderContact) => renderContact !== undefined );
+    }).filter((renderContact) => renderContact !== undefined);
 
     return (
-        <div className={ ContactStyle.contacts }> 
+        <div className={ ContactStyle.contacts }>
             { render }
         </div>
     );
