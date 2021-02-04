@@ -23,17 +23,31 @@ export default class Menu extends React.Component {
     }
 
     renderMainItems() {
+        const { activeKey } = this.state;
+        const updateActiveKey = this.updateActiveKey;
+
         const itemStyle = { overflow: "visible" };
         return ["Home", "Archives", "About", "Link"].map((title, index) => {
-            return <YMenu.Item key={ index } style={ itemStyle }>{ title }</YMenu.Item>;
+            return <YMenu.Item 
+                onClick={() => { 
+                    if (activeKey == index) {
+                        updateActiveKey(index + "" );
+                        navigate(Menu.paths[index]);
+                    }
+                }} 
+                key={ index } 
+                style={ itemStyle }
+            >{ title }</YMenu.Item>;
         });
     }
 
     componentDidMount() {
-        const activeKey = window.location.pathname.slice(0, 6) === "/page/"
-            ? "0"
-            : Menu.paths.indexOf(window.location.pathname) + "";
-        
+        const activeKey = window.location.pathname.slice(0, 6) === "/post/"
+            ? undefined
+            : window.location.pathname.slice(0, 6) === "/page/"
+                ? "0"
+                : Menu.paths.indexOf(window.location.pathname) + "";
+
         this.setState({
             activeKey: activeKey
         });
