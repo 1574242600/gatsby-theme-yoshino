@@ -35,7 +35,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions;
 
-    getPostItems(graphql).then((postItems) => {
+    return getPostItems(graphql).then((postItems) => {
         // 创建文章索引页面
         paginate({
             createPage,
