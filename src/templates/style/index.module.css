@@ -9,3 +9,9 @@
     margin-bottom: 30px;
     text-align: center;
 }
+
+.tag-name {
+    margin: 24px;
+    font-size: 30px;
+    display: block;
+}

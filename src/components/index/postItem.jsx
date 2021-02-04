@@ -9,7 +9,7 @@ import PostItemStyle from "./style/postItem.module.css";
 export default function PostItem(props) {
     const { frontmatter : { title, ...info }, timeToRead, excerpt, fields: { slug } } = props.data;
     info.timeToRead = timeToRead;
-    //todo 懒加载
+    
     return (
         <div className={ PostItemStyle.postItem }> 
             <h2>{ title }</h2>

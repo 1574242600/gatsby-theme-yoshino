@@ -9,7 +9,7 @@ export default function PostInfo(props) {
         <div className={ PostInfoStyle.postInfo }>
             <Time time={{date, update}}/>
             <span>{`预计阅读时长: ${timeToRead} 分钟`}</span>
-            |<span>{`标签: ${tags}`}</span>
+            |<span>{`标签: ${ tags ? tags.join(",") : "null" }`}</span>
 
         </div>
     );
@@ -20,9 +20,6 @@ PostInfo.propTypes = {
         date: PropTypes.string.isRequired,
         update: PropTypes.string,
         timeToRead: PropTypes.number.isRequired,
-        tags: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.arrayOf(PropTypes.string),
-        ])
+        tags: PropTypes.arrayOf(PropTypes.string),
     })
 };
