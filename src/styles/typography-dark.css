@@ -2,12 +2,12 @@
     color: #333!important;
 }
 
-.dark .post-body a:active, a:focus, a:hover {
+.dark .post-body a:active, .dark a:focus, .dark a:hover {
     text-decoration: underline!important;
     color: #222!important;
 }
 
-.dark .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
+.dark .post-body h2, .dark  .post-body h3, .dark  .post-body h4, .dark .post-body h5, .dark  .post-body h6 {
     border-left: 4px solid #111!important;
 }
 
