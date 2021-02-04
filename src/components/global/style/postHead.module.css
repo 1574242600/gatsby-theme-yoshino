@@ -1,0 +1,12 @@
+.title {
+    padding: 8px;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--post-title-color);
+}
+
+:global(.dark) .title { 
+    color: var(--dark-post-title-color)!important;
+}
+

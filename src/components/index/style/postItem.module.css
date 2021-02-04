@@ -6,14 +6,6 @@
     background-color: var(--accent-background-color);
 }
 
-.post-item>h2 {
-    padding: 8px;
-    font-size: 25px;
-    font-weight: 700;
-    text-align: center;
-    color: var(--post-title-color);
-}
-
 .more-button {
     text-align: center;
     margin-bottom: 16px;
@@ -31,11 +23,6 @@
     background-color: #222!important;
 }
 
-:global(.dark) .post-item>h2 { 
-    color: var(--dark-post-title-color)!important;
-}
-
 :global(.dark) .post-item {
     background-color: var(--dark-accent-background-color)!important;
 } 
-
