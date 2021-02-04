@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PostInfo from "./postItem/postInfo";
+import PostInfo from "../global/postInfo";
 import Button from "yoshino/lib/Button/index";
 import { Link } from "gatsby";
 import { toLazyLoadImg } from "../../global";
