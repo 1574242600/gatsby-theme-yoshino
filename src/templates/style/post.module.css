@@ -1,0 +1,18 @@
+.post {
+    position: relative;
+    width: 100%;
+    margin: 25px;
+    max-width: 1200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+    background-color: var(--accent-background-color);
+}
+
+.center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+:global(.dark) .post {
+    background-color: var(--dark-accent-background-color)!important;
+} 

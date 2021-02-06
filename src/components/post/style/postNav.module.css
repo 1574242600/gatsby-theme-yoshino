@@ -1,0 +1,51 @@
+.nav-wrap ol {
+    margin: 0;
+    padding: 0 2px 5px 10px;
+    font-size: 12px;
+    list-style: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.nav-wrap ol>ol {
+    padding-left: 0
+}
+
+.nav-wrap ol a {
+    text-decoration: none;
+    color: #0593d3;
+    border-bottom-color: #ccc;
+    transition-property: all;
+    transition-delay: 0s;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out
+}
+
+.nav-wrap .nav-item {
+    line-height: 1.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.nav-wrap .nav .nav-child {
+    display: none
+}
+
+.nav-wrap .nav .active>.nav-child {
+    display: block
+}
+
+.nav-wrap .nav .active-current>.nav-child {
+    display: block
+}
+
+.nav-wrap .nav .active-current>.nav-child>.nav-item {
+    display: block
+}
+
+:global(.dark) .nav-wrap ol a {
+    color: #999!important;
+}
+

@@ -36,20 +36,6 @@
     box-shadow: none!important;
 }
 
-.divider {
-    display: table;
-    vertical-align: middle;
-    position: relative;
-    margin-bottom: 6px;
-    height: 1px;
-    width: 100%;
-    background-color: var(--divider-color);
-}
-
-:global(.dark) .darl .divider {
-    background-color: var(--dark-divider-color);
-}
-
 @-moz-document url-prefix() { 
     .sidebar { 
         height: calc(100vh - 57px);

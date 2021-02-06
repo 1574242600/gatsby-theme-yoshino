@@ -78,12 +78,12 @@ export default class Sidebar extends React.Component {
 
                 <div style={{ minHeight: "calc(100% - 125px)" }}>
                     <AuthorCard />
-                    <div className={ SidebarStyle.divider } ></div>
+                    <div className={"divider"} ></div>
                     <Menu onRouteChange={ onOverlayClick } />
                 </div> 
 
                 <Contacts />
-                <div className={ SidebarStyle.divider } ></div>
+                <div className={"divider"} ></div>
                 <Footer />
             </div>
         );

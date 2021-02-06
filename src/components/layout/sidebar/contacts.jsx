@@ -48,11 +48,11 @@ export default function Contacts() {
         `
     );
 
-    const [ isMobile, setIsMobile ] = useState(0);
+    const [ isMobile, setIsMobile ] = useState(undefined);
 
     useEffect(() => {
         setIsMobile(getIsMobile());
-    });
+    }, []);
 
     const render = contacts.map((contact) => {
         const { id, name, url } = contact;
