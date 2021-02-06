@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PostHead from "../global/postHead";
 import Button from "yoshino/lib/Button/index";
 import { Link } from "gatsby";
-import { toLazyLoadImg } from "../../global";
+import { addLazyLoadImg } from "../../global";
 import PostItemStyle from "./style/postItem.module.css";
 
 export default function PostItem(props) {
@@ -14,7 +14,7 @@ export default function PostItem(props) {
         <div className={ PostItemStyle.postItem }> 
             <PostHead info={ frontmatter } />
 
-            <div className={"post-body"} dangerouslySetInnerHTML={{ __html: toLazyLoadImg(excerpt) }}></div>
+            <div className={"post-body"} dangerouslySetInnerHTML={{ __html: addLazyLoadImg(excerpt) }}></div>
             <div className={ PostItemStyle.moreButton }>
                 <Button type='primary'>
                     <Link to={slug}>阅读更多</Link>
