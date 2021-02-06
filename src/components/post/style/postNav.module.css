@@ -1,18 +1,18 @@
-.nav-wrap ol {
+:global(.toc-wrap ol) {
     margin: 0;
     padding: 0 2px 5px 10px;
-    font-size: 12px;
+    font-size: 13px;
     list-style: none;
     overflow-x: hidden;
     overflow-y: auto;
     text-align: left;
 }
 
-.nav-wrap ol>ol {
+:global(.toc-wrap ol>ol) {
     padding-left: 0
 }
 
-.nav-wrap ol a {
+:global(.toc-wrap ol a) {
     text-decoration: none;
     color: #0593d3;
     border-bottom-color: #ccc;
@@ -22,30 +22,57 @@
     transition-timing-function: ease-in-out
 }
 
-.nav-wrap .nav-item {
+:global(.toc-wrap .nav-item) {
     line-height: 1.8;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap
 }
 
-.nav-wrap .nav .nav-child {
+:global(.toc-wrap .nav .active>a) {
+    border-bottom-color: #51b26d;
+    color: #51b26d
+}
+
+:global(.toc-wrap .nav .active-current>a) {
+    color: #51b26d
+}
+
+:global(.toc-wrap .nav .active-current>a:hover) {
+    color: #51b26d
+}
+
+
+:global(.toc-wrap .nav .nav-child) {
     display: none
 }
 
-.nav-wrap .nav .active>.nav-child {
+:global(.toc-wrap .nav .active>.nav-child) {
     display: block
 }
 
-.nav-wrap .nav .active-current>.nav-child {
+:global(.toc-wrap .nav .active-current>.nav-child) {
     display: block
 }
 
-.nav-wrap .nav .active-current>.nav-child>.nav-item {
+:global(.toc-wrap .nav .active-current>.nav-child>.nav-item) {
     display: block
 }
 
-:global(.dark) .nav-wrap ol a {
+:global(.dark .toc-wrap ol a) {
     color: #999!important;
+}
+
+:global(.dark .toc-wrap .nav .active>a) {
+    border-bottom-color: #444!important;
+    color: #333!important;
+}
+
+:global(.dark .toc-wrap .nav .active-current>a) {
+    color: #333!important;
+}
+
+:global(.dark .toc-wrap .nav .active-current>a:hover) {
+    color: #333!important;
 }
 

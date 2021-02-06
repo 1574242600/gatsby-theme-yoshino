@@ -1,4 +1,5 @@
 import "lazysizes";
+import "./src/utils/postNav";
 import "./src/styles/var.css";
 import "./src/styles/global.css";
 

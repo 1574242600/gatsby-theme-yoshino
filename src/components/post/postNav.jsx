@@ -1,14 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PostNavStyle from "./style/postNav.module.css";
+import "./style/postNav.module.css";
 
 export default function PostNav(props) {
     const { navHtml } = props;
 
-    return <div 
-        className={ PostNavStyle.navWrap }
-        dangerouslySetInnerHTML={{ __html: navHtml }}
-    ></div>;
+    return (
+        <div className={ "toc-wrap" }>
+            <ol
+                className={"nav"}
+                dangerouslySetInnerHTML={ { __html: navHtml } }
+            ></ol>
+        </div>);
 }
 
 PostNav.propTypes = {
