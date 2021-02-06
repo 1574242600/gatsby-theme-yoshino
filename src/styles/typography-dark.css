@@ -2,7 +2,7 @@
     color: #333!important;
 }
 
-.dark .post-body a:active, .dark a:focus, .dark a:hover {
+.dark .post-body a:active, .dark .post-body a:focus, .dark .post-body a:hover {
     text-decoration: underline!important;
     color: #222!important;
 }
