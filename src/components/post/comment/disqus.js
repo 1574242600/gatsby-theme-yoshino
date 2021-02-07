@@ -25,7 +25,7 @@ function reset(title) {
         reload: true,
         config: () => {
             this.page.url = window.location.href;
-            this.page.identifier = window.location.hostname;
+            this.page.identifier = window.location.pathname;
             this.page.title = title;
         }
     });
@@ -35,7 +35,7 @@ export async function load(siteId, title) {
 
     window.disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = window.location.hostname;
+        this.page.identifier = window.location.pathname;
         this.page.title = title;
     };
 
