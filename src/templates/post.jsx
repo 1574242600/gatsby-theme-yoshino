@@ -28,25 +28,29 @@ export default function Post(props) {
     });
 
     return (
-        <div className={ PostStyle.center + " global-transition" }>
-            <Seo title={ frontmatter.title } >
-                <meta name="description" content={ excerpt } />
-                <meta property="og:type" content="article" />
-                <meta property="og:description" content={ excerpt } />
-            </Seo>
+        <div>
+            <div className={ PostStyle.center }>
+                <Seo title={ frontmatter.title } >
+                    <meta name="description" content={ excerpt } />
+                    <meta property="og:type" content="article" />
+                    <meta property="og:description" content={ excerpt } />
+                </Seo>
 
-            <div className={ PostStyle.post }>
-                <PostHead info={ frontmatter } />
-                { navHtml != null &&
-                    <Drag style={{ right: 400 }} title={"文章目录"}>
-                        <PostNav navHtml={ navHtml } />
-                    </Drag>
-                }
-                <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: addTitleId(addLazyLoadImg(html)) } }></div>
+                <div className={ PostStyle.post }>
+                    <PostHead info={ frontmatter } />
+                    { navHtml != null &&
+                        <Drag style={ { right: 400 } } title={ "文章目录" }>
+                            <PostNav navHtml={ navHtml } />
+                        </Drag>
+                    }
+                    <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: addTitleId(addLazyLoadImg(html)) } }></div>
+                </div>
             </div>
 
-            <div className={ PostStyle.comment }>
-                <Comment postTitle={ frontmatter.title } />
+            <div className={ PostStyle.center }>
+                <div className={ PostStyle.comment }>
+                    <Comment postTitle={ frontmatter.title } />
+                </div>
             </div>
         </div>
     );
