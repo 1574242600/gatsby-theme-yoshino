@@ -9,7 +9,7 @@ export default function PostHead(props) {
     return (
         <div>
             <h2 className={ PostHeadStyle.title } >{ title }</h2>
-            <PostInfo info={ info } />
+            { JSON.stringify(info) !== "{}"  && <PostInfo info={ info } />}
         </div>
     );
 }
@@ -17,9 +17,9 @@ export default function PostHead(props) {
 PostHead.propTypes = {
     info: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
+        date: PropTypes.string,
         update: PropTypes.string,
-        timeToRead: PropTypes.number.isRequired,
+        timeToRead: PropTypes.number,
         tags: PropTypes.arrayOf(PropTypes.string),
     })
 };

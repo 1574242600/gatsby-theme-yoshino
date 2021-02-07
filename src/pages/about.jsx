@@ -1,9 +1,59 @@
 import React from "react";
+import PropTypes from "prop-types";
+import PostStyle from "../templates/style/post.module.css";
+import PostHead from "components/global/postHead";
+import Comment from "components/post/comment";
+import Seo from "components/global/seo";
+import { addLazyLoadImg, addTitleId } from "../global";
+import { graphql } from "gatsby";
 
-export default class About extends React.Component {
-    render() {
-        return (
-            <div>Hello About!</div>
-        );
-    }
+export default function About(props) {
+    if (props.data.markdownRemark === null) { return "error: no found about.md";}
+    
+    const {
+        markdownRemark: {
+            frontmatter,
+            excerpt,
+            html
+        }
+    } = props.data;
+
+    return (
+        <div>
+            <div className={ PostStyle.center }>
+                <Seo title={ frontmatter.title } >
+                    <meta name="description" content={ excerpt } />
+                    <meta property="og:type" content="article" />
+                    <meta property="og:description" content={ excerpt } />
+                </Seo>
+
+                <div className={ PostStyle.post }>
+                    <PostHead info={ frontmatter } />
+                    <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: addTitleId(addLazyLoadImg(html)) } }></div>
+                </div>
+            </div>
+
+            <div className={ PostStyle.center }>
+                <div className={ PostStyle.comment }>
+                    <Comment postTitle={ frontmatter.title } />
+                </div>
+            </div>
+        </div>
+    );
 }
+
+About.propTypes = {
+    data: PropTypes.object
+};
+
+export const query = graphql`
+    query aboutQuery {
+        markdownRemark(fileAbsolutePath: {regex: "/(?<=about)\\\\.md$/"}) {
+            frontmatter { 
+                title
+            }
+            excerpt
+            html
+        }
+    }
+`;
