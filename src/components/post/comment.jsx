@@ -26,7 +26,7 @@ export default function Comment(props) {
     useEffect(() => {
         comment.load(siteId, postTitle);
         return comment.destroy;
-    });
+    }, []);
 
     return (
         <div id={comment.elementId}>
