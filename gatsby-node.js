@@ -89,7 +89,7 @@ exports.createResolvers = ({ createResolvers }) => {
 function getPostItems(graphql) {
     return graphql(`
         {
-            allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {fileAbsolutePath: {regex: "/(?<!about)\\.md$/"}}) {
+            allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC} filter: {fileAbsolutePath: {regex: "/(?<!about)\\\\.md$/"}}) {
                 edges {
                     node {
                         id
