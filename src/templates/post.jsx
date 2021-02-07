@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import PostStyle from "./style/post.module.css";
 import PostHead from "components/global/postHead";
 import PostNav from "components/post/postNav";
+import Comment from "components/post/comment";
 import Drag from "components/global/drag";
 import Seo from "components/global/seo";
 import { addLazyLoadImg, addTitleId } from "../global";
@@ -42,6 +43,10 @@ export default function Post(props) {
                     </Drag>
                 }
                 <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: addTitleId(addLazyLoadImg(html)) } }></div>
+            </div>
+
+            <div className={ PostStyle.comment }>
+                <Comment postTitle={ frontmatter.title } />
             </div>
         </div>
     );

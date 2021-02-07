@@ -28,7 +28,8 @@ module.exports = {
             //{ name: 'discord', url: '' },
             //{ name: 'fackbook', url: '' },
             //{ name: 'line', url: '' },
-        ]
+        ],
+        comment: { type: "disqus", id: "nworm" }
     },
     plugins: [
         "gatsby-plugin-react-helmet",
