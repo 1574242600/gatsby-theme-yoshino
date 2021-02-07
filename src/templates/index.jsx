@@ -70,7 +70,7 @@ Home.propTypes = {
 
 export const query = graphql`
     query indexQuery($skip: Int!, $limit: Int!) {
-        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, skip: $skip, limit: $limit) {
+        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {fileAbsolutePath: {regex: "/(?<!about)\\.md$/"}}, skip: $skip, limit: $limit) {
             edges {
                 node {
                     id
