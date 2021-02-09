@@ -1,6 +1,6 @@
-/static
-/.cache
-/.public
-/node_modules
+static/
+.cache/
+public/
+node_modules/
 src/pages/post
 src/pages/data
