@@ -1,0 +1,43 @@
+.center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.archives-card {
+    width: 100%;
+    margin: 25px;
+    padding: 8px;
+    max-width: 1200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+    background-color: var(--accent-background-color);
+}
+
+.archives-card>h1 {
+    margin-bottom: 8px;
+    color: var(--accent-text-color);
+    
+}
+
+.archives-list ul {
+    padding-left: 8px;
+}
+
+.archives-list>ul>li li {
+    padding: 4px;
+    list-style: disc;
+    margin-left: 32px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.archives-list time {
+    margin-right: 8px;
+}
+
+:global(.dark) .archives-card {
+    background-color: var(--dark-accent-background-color)!important;
+}
+
+:global(.dark) .archives-list>ul>li li {
+    border-bottom: 1px dashed #999;
+}
