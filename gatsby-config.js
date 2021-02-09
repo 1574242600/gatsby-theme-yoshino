@@ -8,7 +8,7 @@
 module.exports = {
     siteMetadata: {
         url: "https://nworm.icu",   //todo 相对路径改为绝对
-        title: "Nworm",
+        title: "Nworm",               //todo cc许可证
         author: "nworm",
         description: "一条咸鱼",
         since: "2019-06-21T11:30:00.000Z",
@@ -32,6 +32,7 @@ module.exports = {
         comment: { type: "disqus", id: "nworm" }
     },
     plugins: [
+        "gatsby-transformer-json",
         "gatsby-plugin-react-helmet",
         {
             resolve: "gatsby-plugin-layout",
