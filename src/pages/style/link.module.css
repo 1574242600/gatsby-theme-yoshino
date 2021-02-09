@@ -1,0 +1,52 @@
+.link-card {
+    width: 100%;
+    margin: 25px;
+    padding: 8px;
+    max-width: 1200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+    background-color: var(--accent-background-color);
+}
+
+.link-card>h1 {
+    margin-bottom: 8px;
+    color: var(--accent-text-color);
+}
+
+.link-list {
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.link-item {
+    width: 120px;
+    height: 150px;
+    text-align: center;
+    margin: 0 0 30px 20px;
+}
+
+.link-item img {
+    width: 100px;
+    height: 100px;
+}
+
+.link-item h4 {
+    color: var(--text-color);
+}
+
+.link-item p {
+    color: #666;
+    font-size: 12px;
+}
+
+:global(.dark) .link-card {
+    background-color: var(--dark-accent-background-color)!important;
+}
+
+:global(.dark) .link-item h4 {
+    color: var(--dark-text-color)!important;
+}
+
+:global(.dark) .link-item p {
+    color: #444;
+}
