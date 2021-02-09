@@ -11,13 +11,13 @@ export default class Home extends React.Component {
     renderPostItem(data) {
         const { id, ...other } = data;
 
-        return <PostItem key={ id } data={other} />;
+        return <li key={ id }><PostItem data={ other } /></li>;
     }
 
     render() {
-        const { 
-            data: { 
-                allMarkdownRemark: {  
+        const {
+            data: {
+                allMarkdownRemark: {
                     edges
                 },
                 site: {
@@ -30,33 +30,33 @@ export default class Home extends React.Component {
         } = this.props;
 
         return (
-            <div>
-                <Seo 
-                    title={ 
-                        pageContext.humanPageNumber === 1 
-                            ? undefined 
+            <div className={ IndexStyle.index }>
+                <Seo
+                    title={
+                        pageContext.humanPageNumber === 1
+                            ? undefined
                             : `第${pageContext.humanPageNumber}页`
                     }
                 >
-                    <meta name="description" content={description} />
+                    <meta name="description" content={ description } />
                 </Seo>
 
-                <div className={ IndexStyle.index }>
+                <ol>
                     { edges.map((postData) => this.renderPostItem(postData.node)) }
-                </div>
+                </ol>
                 <Pagination
-                    total={ pageContext.numberOfPages * pageContext.limit } 
+                    total={ pageContext.numberOfPages * pageContext.limit }
                     current={ pageContext.humanPageNumber }
                     pageSize={ pageContext.limit }
                     className={ IndexStyle.pagination }
-                    onChange={(current) => {
-                        if ( current === 1) { 
-                            navigate("/"); 
-                            return ;
+                    onChange={ (current) => {
+                        if (current === 1) {
+                            navigate("/");
+                            return;
                         }
 
                         navigate(`/page/${current}`);
-                    }}
+                    } }
                 />
             </div>
         );

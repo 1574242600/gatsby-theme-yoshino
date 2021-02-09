@@ -1,5 +1,7 @@
 .index {
+    width: 100%;
     margin: 24px;
+    max-width: 1200px;
 }
 
 .pagination {

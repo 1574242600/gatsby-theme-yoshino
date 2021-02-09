@@ -11,7 +11,7 @@ export default class TagIndex extends React.Component {
     renderPostItem(data) {
         const { id, ...other } = data;
 
-        return <PostItem key={ id } data={ other } />;
+        return <li key={ id }><PostItem data={ other }/></li>;
     }
 
     render() {
@@ -25,16 +25,18 @@ export default class TagIndex extends React.Component {
         } = this.props;
 
         return (
-            <div className={ "global-transition" }>
+            <div className={ IndexStyle.index }>
                 <Seo
                     title={`标签: ${ pageContext.tag } 第${pageContext.humanPageNumber}页`}
                 >
                 </Seo>
 
                 <div className={ IndexStyle.tagName }>标签： { pageContext.tag }</div>
-                <div className={ IndexStyle.index + " global-transition" }> 
+
+                <ol > 
                     { edges.map((postData) => this.renderPostItem(postData.node)) }
-                </div>
+                </ol>
+
                 <Pagination
                     total={ pageContext.numberOfPages * pageContext.limit }
                     current={ pageContext.humanPageNumber }
