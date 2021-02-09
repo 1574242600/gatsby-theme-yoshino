@@ -35,6 +35,30 @@ module.exports = {
         "gatsby-transformer-json",
         "gatsby-plugin-react-helmet",
         {
+            resolve: "gatsby-plugin-sitemap",
+            options: {
+                output: "/sitemap.xml",
+                query: `
+                    {
+                        site {
+                            siteMetadata {
+                                url
+                            }
+                        }
+
+                        allSitePage {
+                            nodes {
+                              path
+                            }
+                        }
+                    }
+                `,
+                resolveSiteUrl: ({ site }) => {
+                    return site.siteMetadata.url;
+                }
+            }
+        },
+        {
             resolve: "gatsby-plugin-layout",
             options: {
                 component: require.resolve("./src/components/layout.jsx"),
