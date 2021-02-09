@@ -2,3 +2,5 @@
 /.cache
 /.public
 /node_modules
+src/pages/post
+src/pages/data
