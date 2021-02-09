@@ -1,9 +1,10 @@
 {
   "name": "gatsby-theme-yoshino",
-  "private": true,
   "description": "A gatsby theme",
   "version": "0.0.1",
   "license": "MIT",
+  "author": "Nworm",
+  "main": "index.js",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0 --open",
