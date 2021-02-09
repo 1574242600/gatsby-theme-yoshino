@@ -57,14 +57,12 @@ export default class Archives extends React.Component {
         const edges = this.props.data.allMarkdownRemark.edges;
 
         return (
-            <div className={ ArchivesStyle.center }>
-                <div className={ ArchivesStyle.archivesCard }>
-                    <Seo title={ "归档" } >
-                    </Seo>
-                    <h1>归档</h1>
-                    <div className={ ArchivesStyle.archivesList }>
-                        { this.renderTimeLine(this.toYearKey(edges)) }
-                    </div>
+            <div className={ ArchivesStyle.archivesCard }>
+                <Seo title={ "归档" } >
+                </Seo>
+                <h1>归档</h1>
+                <div className={ ArchivesStyle.archivesList }>
+                    { this.renderTimeLine(this.toYearKey(edges)) }
                 </div>
             </div>
         );

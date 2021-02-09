@@ -30,7 +30,7 @@ export default class Home extends React.Component {
         } = this.props;
 
         return (
-            <div className={ "global-transition" }>
+            <div>
                 <Seo 
                     title={ 
                         pageContext.humanPageNumber === 1 
@@ -41,7 +41,7 @@ export default class Home extends React.Component {
                     <meta name="description" content={description} />
                 </Seo>
 
-                <div className={ IndexStyle.index + " global-transition" }>
+                <div className={ IndexStyle.index }>
                     { edges.map((postData) => this.renderPostItem(postData.node)) }
                 </div>
                 <Pagination
