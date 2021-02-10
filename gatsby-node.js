@@ -19,7 +19,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         createNodeField({
             node,
             name: "slug",
-            value: "/post" + createFilePath({ node, getNode, basePath: "pages/post" }),
+            value: createFilePath({ node, getNode, basePath: "pages/post" }),
         });
 
         //这个没什么用，我也不知道为什么示例要写
