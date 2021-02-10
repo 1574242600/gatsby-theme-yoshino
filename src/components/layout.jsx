@@ -94,7 +94,6 @@ export default class Layout extends React.Component {
         const { children, location } = this.props;
         const { sidebarOpen } = this.state;
 
-        //todo: 路由过渡 https://www.ruoduan.cn/Gatsby-layout/
         return (
             <TransitionProvider
                 location={ location }
@@ -110,7 +109,7 @@ export default class Layout extends React.Component {
                     opacity: 1,
                     transform: "transition: opacity 0.3s",
                 } }
-                
+
                 leave={ {
                     opacity: 1,
                     transform: "transition: opacity 0.3s",
@@ -126,15 +125,17 @@ export default class Layout extends React.Component {
                     />
                     <Sidebar open={ sidebarOpen } onOverlayClick={ this.handleMenuIconClick } />
 
-                    <TransitionViews>
-                        <div
-                            className={ LayoutStyle.pages + " "
-                                + (sidebarOpen ? LayoutStyle.sidebarOpenOffset : "") }
-                            location={ location }
-                        >
-                            { children }
-                        </div>
-                    </TransitionViews>
+                    <div className={ sidebarOpen ? LayoutStyle.sidebarOpenOffset : undefined }>
+                        <TransitionViews >
+                            <div
+                                className={ LayoutStyle.pages }
+                                location={ location }
+                            >
+                                { children }
+                            </div>
+                        </TransitionViews>
+                    </div>
+
                 </div>
 
             </TransitionProvider >
