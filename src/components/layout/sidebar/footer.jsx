@@ -9,6 +9,7 @@ export default function AuthorCard() {
             query {
                 site {
                     siteMetadata {
+                        url
                         since
                         title
                         author
@@ -16,13 +17,23 @@ export default function AuthorCard() {
                 }
             }`
     );
+        
+    const { since, title, author, url } = siteMetadata;
 
     return (
         <footer className={ FooterStyle.footer } >
-            <Since since={ siteMetadata.since } />
-            <div>© { (new Date).getFullYear() } { siteMetadata.title }. {"Powered by"} <a href={"//www.gatsbyjs.com/"} target={"_blank"} rel="noreferrer">gatsby</a></div>
-            <div>Theme by <a href={"//github.com/1574242600/gatsby-theme-yoshino"} target={"_blank"} rel="noreferrer">yoshino</a> v0.0.1</div>
-            <div>Made with by { siteMetadata.author }.</div>
+            <Since since={ since } />
+            <div>© { (new Date).getFullYear() } { title }. {"Powered by"} <a href={"//www.gatsbyjs.com/"} target={"_blank"} rel="noreferrer">gatsby</a></div>
+            <div>
+                {"Theme by  "} 
+                <a href={"//github.com/1574242600/gatsby-theme-yoshino"} target={"_blank"} rel="noreferrer">
+                    yoshino v0.0.5
+                </a> 
+            </div>
+            <div>
+                <span>Made with by { author }.</span> 
+                {" "}
+                <span><a href={`${url }/sitemap.xml`}>sitemap</a></span></div>
         </footer>
     );
 }
