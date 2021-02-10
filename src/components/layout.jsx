@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { TransitionProvider, TransitionViews } from "gatsby-plugin-transitions";
 import LayoutStyle from "./layout/style/layout.module.css";
 import Header from "./layout/header";
 import Sidebar from "./layout/sidebar";
 import { isLg } from "../global";
 
-function modifyBodyClass (className, mode) {
+function modifyBodyClass(className, mode) {
     const _document = typeof document !== "undefined" && document.body;
-    if ( mode === "add" ) {
+    if (mode === "add") {
         _document.classList.add(className);
     }
 
@@ -17,15 +18,15 @@ function modifyBodyClass (className, mode) {
 }
 
 function modifyDarkMode(darkMode) {
-    modifyBodyClass("dark", darkMode ? "add": "remove");
+    modifyBodyClass("dark", darkMode ? "add" : "remove");
 }
 
 function modifyBodyLocked(locked) {
-    modifyBodyClass("body-locked", locked ? "add": "remove");
+    modifyBodyClass("body-locked", locked ? "add" : "remove");
 }
 
 export default class Layout extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             sidebarOpen: isLg ? true : false,
@@ -55,8 +56,8 @@ export default class Layout extends React.Component {
             return true;
         }
 
-        if ( userDarkStatus !== null) { 
-            return userDarkStatus === "true"; 
+        if (userDarkStatus !== null) {
+            return userDarkStatus === "true";
         }
 
         return false;
@@ -65,7 +66,7 @@ export default class Layout extends React.Component {
     handleMenuIconClick() {
         const sidebarOpen = !this.state.sidebarOpen;
 
-        if ( !isLg ) { modifyBodyLocked(sidebarOpen); }
+        if (!isLg) { modifyBodyLocked(sidebarOpen); }
         this.setState({
             sidebarOpen: sidebarOpen,
         });
@@ -73,9 +74,9 @@ export default class Layout extends React.Component {
 
     handleDarkIconClick() {
         const darkMode = !this.state.darkMode;
-        typeof window !== "undefined" && 
+        typeof window !== "undefined" &&
             window.localStorage.setItem("darkMode", darkMode);
-        
+
         this.setState({
             darkMode: darkMode,
         });
@@ -90,28 +91,58 @@ export default class Layout extends React.Component {
     }
 
     render() {
-        const { children } = this.props;
+        const { children, location } = this.props;
         const { sidebarOpen } = this.state;
 
         //todo: 路由过渡 https://www.ruoduan.cn/Gatsby-layout/
         return (
-            <div className={"global-transition"}>
-                <Header 
-                    onMenuIconClick={ this.handleMenuIconClick } 
-                    onDarkIconClick={ this.handleDarkIconClick }
-                />
-                <Sidebar open={ sidebarOpen } onOverlayClick={ this.handleMenuIconClick } />
+            <TransitionProvider
+                location={ location }
+                enter={ {
+                    opacity: 0,
+                    transform: "transition: opacity 0.3s",
+                    config: {
+                        duration: 300
+                    }
+                } }
 
-                <div className={ LayoutStyle.pages + " " 
-                        + (sidebarOpen ? LayoutStyle.sidebarOpenOffset : "") }
-                > 
-                    { children }
+                usual={ {
+                    opacity: 1,
+                    transform: "transition: opacity 0.3s",
+                } }
+                
+                leave={ {
+                    opacity: 1,
+                    transform: "transition: opacity 0.3s",
+                    config: {
+                        duration: 0
+                    }
+                } }
+            >
+                <div className={ "global-transition" }>
+                    <Header
+                        onMenuIconClick={ this.handleMenuIconClick }
+                        onDarkIconClick={ this.handleDarkIconClick }
+                    />
+                    <Sidebar open={ sidebarOpen } onOverlayClick={ this.handleMenuIconClick } />
+
+                    <TransitionViews>
+                        <div
+                            className={ LayoutStyle.pages + " "
+                                + (sidebarOpen ? LayoutStyle.sidebarOpenOffset : "") }
+                            location={ location }
+                        >
+                            { children }
+                        </div>
+                    </TransitionViews>
                 </div>
-            </div>
+
+            </TransitionProvider >
         );
     }
 }
 
 Layout.propTypes = {
-    children: PropTypes.element,
+    location: PropTypes.object,
+    children: PropTypes.element
 };

@@ -23,7 +23,7 @@ function handleMouseMove(e, dragging, refXY, setMoveXY) {
     if (dragging) { 
         const moveXY = {};
         moveXY.x = e.clientX - refXY.x - 10;
-        moveXY.y = e.clientY - refXY.y - 10;
+        moveXY.y = e.clientY - refXY.y - 88;
         //console.log("move  client");
         //console.log(moveXY);
         //console.log({x:e.clientX, y: e.clientY});
