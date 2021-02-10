@@ -27,7 +27,7 @@ export default class Menu extends React.Component {
         const updateActiveKey = this.updateActiveKey;
 
         const itemStyle = { overflow: "visible" };
-        return ["Home", "Archives", "About", "Link"].map((title, index) => {
+        return ["主页", "归档", "关于", "朋友"].map((title, index) => {
             return <YMenu.Item 
                 onClick={() => { 
                     if (activeKey == index) {

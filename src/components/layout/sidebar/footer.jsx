@@ -20,8 +20,8 @@ export default function AuthorCard() {
     return (
         <footer className={ FooterStyle.footer } >
             <Since since={ siteMetadata.since } />
-            <div>© { (new Date).getFullYear() } { siteMetadata.title }. 由 <a href={"//www.gatsbyjs.com/"} target={"_blank"} rel="noreferrer">gatsby</a> 强力驱动.</div>
-            <div>Theme By <a href={"//github.com/1574242600/gatsby-theme-yoshino"} target={"_blank"} rel="noreferrer">yoshino</a> v0.0.1</div>
+            <div>© { (new Date).getFullYear() } { siteMetadata.title }. {"Powered by"} <a href={"//www.gatsbyjs.com/"} target={"_blank"} rel="noreferrer">gatsby</a></div>
+            <div>Theme by <a href={"//github.com/1574242600/gatsby-theme-yoshino"} target={"_blank"} rel="noreferrer">yoshino</a> v0.0.1</div>
             <div>Made with by { siteMetadata.author }.</div>
         </footer>
     );
