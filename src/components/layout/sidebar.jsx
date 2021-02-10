@@ -76,7 +76,7 @@ export default class Sidebar extends React.Component {
                     { OverlayPortal }
                 </div>
 
-                <div style={{ minHeight: "calc(100% - 125px)" }}>
+                <div style={{ minHeight: "calc(100% - 126px)" }}>
                     <AuthorCard />
                     <div className={"divider"} ></div>
                     <Menu onRouteChange={ onOverlayClick } />
