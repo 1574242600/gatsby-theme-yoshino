@@ -14,6 +14,9 @@ import "yoshino/lib/Pagination/style/index";
 import "yoshino/lib/common/reset.css";
 import "./src/styles/yoshino-dark.css";
 
+const shouldUpdateScroll = () => {
+    return false;
+};
 
 const onRouteUpdate = async ({ location, prevLocation }) => {
     if (!prevLocation || location.pathname !== prevLocation.pathname) {
@@ -26,4 +29,4 @@ const onRouteUpdate = async ({ location, prevLocation }) => {
 
 };
 
-export { onRouteUpdate };
+export { onRouteUpdate, shouldUpdateScroll };
