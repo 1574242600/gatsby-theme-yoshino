@@ -37,7 +37,7 @@ export default class Sidebar extends React.Component {
         //console.log(timeDiff);
         //console.log(yDiff); console.log(xDiff);
         // abs(xDiff) timeDiff 判断是否为单击， abs(yDiff) 判断是否为上下滑动
-        if ( timeDiff > 100 && Math.abs(xDiff) > 20 && Math.abs(yDiff) < 50) { 
+        if ( timeDiff > 100 && Math.abs(xDiff) > 50 && Math.abs(yDiff) < 30) { 
             // xDiff 判断是否为左右滑动  < 0 向右， > 0 向左  
             if ( (xDiff < 0 && !open) ||  (xDiff > 0 && open) ) {
                 onSwipeLeftRight();
