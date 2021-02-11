@@ -39,9 +39,9 @@ export default function Post(props) {
             <div className={ PostStyle.post }>
                 <PostHead info={ frontmatter } />
                 { navHtml != null &&
-                    <Drag style={ { right: 400 } } title={ "文章目录" }>
-                        <PostNav navHtml={ navHtml } />
-                    </Drag>
+                        <Drag title={ "文章目录" }>
+                            <PostNav navHtml={ navHtml } />
+                        </Drag>
                 }
                 <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: addTitleId(addLazyLoadImg(html)) } }></div>
             </div>

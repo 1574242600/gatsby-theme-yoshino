@@ -1,10 +1,8 @@
-.drag-wrap {
-    position: absolute;
-    z-index: 1001;
-}
-
 .drag {
     position: fixed;
+    top: 200px;
+    z-index: 1001;
+    right: calc(10vw - 100px);
     width: 100%;
     max-width: 360px;
     background-color: var(--background-color);
@@ -23,8 +21,21 @@
     background-color: var(--dark-background-color)!important;
 }
 
+
 @media (max-width: 992px) {
-    .drag-wrap {
+    .drag {
         display: none;
+    }
+}
+
+@media (min-width: 1440px) {
+    .drag {
+        right: calc(20vw - 100px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .drag {
+        right: calc(30vw - 100px);
     }
 }
