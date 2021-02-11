@@ -1,9 +1,12 @@
+import mediumZoom from "medium-zoom";
 import "lazysizes";
+
 import "./src/utils/postNav";
 import "./src/styles/var.css";
 import "./src/styles/global.css";
 
 import "./src/styles/lazyload.css";
+import "./src/styles/medium-zoom.css";
 import "./src/styles/typography.css";
 import "./src/styles/typography-dark.css";
 
@@ -20,13 +23,14 @@ const shouldUpdateScroll = () => {
 
 const onRouteUpdate = async ({ location, prevLocation }) => {
     if (!prevLocation || location.pathname !== prevLocation.pathname) {
-        setTimeout(() => {
-            //todo: 图片缩放 https://www.cnblogs.com/liangfengning/p/14319692.html
-            //const elements = document.querySelectorAll('img');  
-            
-        }, 300);
+        if (location.pathname.startsWith("/post/")) {
+            setTimeout(() => {
+                mediumZoom(document.querySelectorAll("img"), {
+                    background: "rgba(0, 0, 0, .8)",
+                });
+            }, 300);
+        }
     }
-
 };
 
 export { onRouteUpdate, shouldUpdateScroll };
