@@ -33,7 +33,10 @@ export default function AuthorCard() {
             <div>
                 <span>Made with by { author }.</span> 
                 {" "}
-                <span><a href={`${url }/sitemap.xml`}>sitemap</a></span></div>
+                <span><a href={`${url }/sitemap.xml`}>sitemap</a></span>
+                {" "}
+                <span><a href={`${url }/rss.xml`}>rss</a></span>
+            </div>
         </footer>
     );
 }
