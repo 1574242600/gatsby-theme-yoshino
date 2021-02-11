@@ -17,7 +17,7 @@ body, .global-transition div {
     transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 
-body[class='dark'] {
+body[class^='dark'] {
     background-color: var(--dark-background-color)!important;
 }
 
