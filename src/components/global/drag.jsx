@@ -67,16 +67,20 @@ export default function drag(props) {
         return () => document.removeEventListener("mouseup", onMouseUp);
     }, []);
 
-    return ReactDOM.createPortal((
-        <div 
-            ref={ moveRef }
-            className={ DragStyle.drag } 
-            style={Object.assign({}, {left: moveXY.x, top: moveXY.y, padding: "8px"}, style)} 
-        >
-            <div ref={ clickRef } className={ DragStyle.title } >{ title }</div>
-            <div className={ "divider" }></div>
-            { children }
-        </div>), document.body);
+    const portal = typeof window !== "undefined"
+        ? ReactDOM.createPortal((
+            <div
+                ref={ moveRef }
+                className={ DragStyle.drag }
+                style={ Object.assign({}, { left: moveXY.x, top: moveXY.y, padding: "8px" }, style) }
+            >
+                <div ref={ clickRef } className={ DragStyle.title } >{ title }</div>
+                <div className={ "divider" }></div>
+                { children }
+            </div>), document.body)
+        : "";
+
+    return portal;
 }
 
 drag.propTypes = {
