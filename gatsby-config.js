@@ -7,7 +7,7 @@
 
 module.exports = {
     siteMetadata: {
-        url: "https://nworm.icu",   //todo 相对路径改为绝对
+        url: "http://127.0.0.1:8000",   //todo 相对路径改为绝对
         title: "Nworm",               //todo cc许可证
         author: "nworm",
         description: "一条咸鱼",
