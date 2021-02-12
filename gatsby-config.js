@@ -33,31 +33,8 @@ module.exports = {
     },
     plugins: [
         "gatsby-transformer-json",
+        "gatsby-plugin-offline",
         "gatsby-plugin-react-helmet",
-        {
-            resolve: "gatsby-plugin-sitemap",
-            options: {
-                output: "/sitemap.xml",
-                query: `
-                    {
-                        site {
-                            siteMetadata {
-                                url
-                            }
-                        }
-
-                        allSitePage {
-                            nodes {
-                              path
-                            }
-                        }
-                    }
-                `,
-                resolveSiteUrl: ({ site }) => {
-                    return site.siteMetadata.url;
-                }
-            }
-        },
         {
             resolve: "gatsby-plugin-layout",
             options: {
@@ -83,6 +60,30 @@ module.exports = {
                         wrapperClassName: "code-line"
                     }
                 }]
+            }
+        },
+        {
+            resolve: "gatsby-plugin-sitemap",
+            options: {
+                output: "/sitemap.xml",
+                query: `
+                    {
+                        site {
+                            siteMetadata {
+                                url
+                            }
+                        }
+
+                        allSitePage {
+                            nodes {
+                              path
+                            }
+                        }
+                    }
+                `,
+                resolveSiteUrl: ({ site }) => {
+                    return site.siteMetadata.url;
+                }
             }
         }
     ],
