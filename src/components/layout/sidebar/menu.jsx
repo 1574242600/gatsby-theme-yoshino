@@ -42,11 +42,13 @@ export default class Menu extends React.Component {
     }
 
     componentDidMount() {
-        const activeKey = window.location.pathname.slice(0, 6) === "/post/"
+        const routerPath = window.location.pathname.slice(0, 6);
+
+        const activeKey = routerPath === "/post/"
             ? undefined
-            : window.location.pathname.slice(0, 6) === "/page/"
+            : routerPath === "/page/"
                 ? "0"
-                : Menu.paths.indexOf(window.location.pathname) + "";
+                : Menu.paths.indexOf(routerPath) + "";
 
         this.setState({
             activeKey: activeKey
