@@ -1,10 +1,14 @@
 /* fade image in after load */
 .lazyload, .lazyloading {
+    height: auto;
+    width: auto;
     opacity: 1;
     background-color: #9e9e9e;
 }
 
 .lazyloaded {
+    height: auto;
+    width: auto;
 	opacity: 1;
 	transition: opacity 300ms;
 }

@@ -14,7 +14,7 @@ export default function Avatar(props) {
             className={ AauthorCardStyle.avatar + " " + AauthorCardStyle.textCenter  }
         >
             <img 
-                className={ AauthorCardStyle.avatarCircle + " lazyloading" } 
+                className={ AauthorCardStyle.avatarCircle } 
                 src={ avatarSrc } 
                 width={ width }
                 height={ height }
