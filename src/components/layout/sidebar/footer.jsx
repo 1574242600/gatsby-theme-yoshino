@@ -27,7 +27,7 @@ export default function AuthorCard() {
             <div>
                 {"Theme by  "} 
                 <a href={"//github.com/1574242600/gatsby-theme-yoshino"} target={"_blank"} rel="noreferrer">
-                    yoshino v0.0.5
+                    yoshino v0.1.1
                 </a> 
             </div>
             <div>
