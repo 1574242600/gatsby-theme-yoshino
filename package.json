@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-yoshino",
   "description": "A gatsby theme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "Nworm",
   "main": "index.js",
