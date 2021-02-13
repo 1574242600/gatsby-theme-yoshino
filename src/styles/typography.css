@@ -67,3 +67,47 @@
     height: 1px;
     border: none;
 }
+
+
+.post-body table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: .875em;
+    margin: 0 0 20px;
+    width: 100%;
+}
+
+.post-body tbody tr:nth-of-type(2n+1) {
+    background: #f9f9f9;
+}
+
+
+.post-body tbody tr:hover {
+    background-color: #999!important;
+}
+
+.post-body th, td {
+    font-weight: 400;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.post-body th, td {
+    font-weight: 400;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.post-body th, td {
+    border: 1px solid #777;
+        border-right-color: #777;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-bottom-color: #777;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    border-bottom: 1px solid #777;
+        border-bottom-width: 1px;
+}

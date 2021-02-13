@@ -20,3 +20,24 @@
 .dark .post-body hr {
     background-color: #555;
 }
+
+
+.dark .post-body tbody tr:nth-of-type(2n+1) {
+    background: #555;
+}
+
+.dark .post-body tbody tr:hover {
+    background-color: rgba(153, 153, 153, 0.5)!important;
+}
+
+.dark .post-body th, td {
+    border: 1px solid #999;
+        border-right-color: #999;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-bottom-color: #999;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    border-bottom: 1px solid #999;
+        border-bottom-width: 1px;
+}
