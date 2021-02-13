@@ -13,11 +13,13 @@
 }
 
 .post-body p {
+    line-height: 2.5;
     word-break:normal;
     word-wrap:break-word; 
 }
 
 .post-body img {
+    padding: 50px;
     min-width: 50px;
     max-width: 100%;
     height: auto;
@@ -45,17 +47,18 @@
 }
 
 .post-body pre {
-    margin: 0;
+    margin: 40px;
     color: #999;
-    background-color: #2b2b2b;
     margin-bottom: 20px;
     border-radius: 3px;
     padding: 6px
 }
 
 .post-body pre code {
+    line-height: 1.8;
     display: block;
     overflow-x: auto;
+    background-color: #2b2b2b;
 }
 
 .post-body .code-line>code>span {
