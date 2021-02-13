@@ -2,9 +2,13 @@
     color: #333!important;
 }
 
+.dark .post-body a {
+    color: #222!important;
+}
+
 .dark .post-body a:active, .dark .post-body a:focus, .dark .post-body a:hover {
     text-decoration: underline!important;
-    color: #222!important;
+    color: #111!important;
 }
 
 .dark .post-body h2, .dark  .post-body h3, .dark  .post-body h4, .dark .post-body h5, .dark  .post-body h6 {
