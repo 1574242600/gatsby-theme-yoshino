@@ -15,7 +15,7 @@ const postNav = {
                     targets: document.scrollingElement,
                     duration: 500,
                     easing: "linear",
-                    scrollTop: offset + 10
+                    scrollTop: offset - 70
                 });
             });
             return document.getElementById(link.getAttribute("href").replace("#", ""));
@@ -44,12 +44,12 @@ const postNav = {
         function findIndex(entries) {
             let index = 0;
             let entry = entries[index];
-            if (entry.boundingClientRect.top > 0) {
+            if (entry.boundingClientRect.top > 80) {
                 index = sections.indexOf(entry.target);
                 return index === 0 ? 0 : index - 1;
             }
             for (; index < entries.length; index++) {
-                if (entries[index].boundingClientRect.top <= 0) {
+                if (entries[index].boundingClientRect.top <= 80) {
                     entry = entries[index];
                 } else {
                     return sections.indexOf(entry.target);
@@ -67,12 +67,14 @@ const postNav = {
                     createIntersectionObserver(scrollHeight);
                     return;
                 }
+
                 let index = findIndex(entries);
                 activateNavByIndex(navItems[index]);
             }, {
-                rootMargin: marginTop + "px 0px -100% 0px",
+                rootMargin: `${marginTop}px 0px -${window.innerHeight - 80}px 0px`,
                 threshold: 0
             });
+
             sections.forEach(element => {
                 element && window.intersectionObservers.observe(element);
             });
