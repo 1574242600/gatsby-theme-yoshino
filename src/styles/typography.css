@@ -2,7 +2,7 @@
     color: #555;
     margin: 20px;
     padding-bottom: 20px;
-    line-height: 1.8;
+    line-height: 2;
 }
 
 .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
@@ -14,16 +14,22 @@
 }
 
 .post-body p {
-    line-height: 2.5;
+    margin: 0 0 20px 0;
     word-break:normal;
     word-wrap:break-word; 
 }
 
 .post-body img {
-    padding: 50px;
+    margin: 1%;
     min-width: 50px;
-    max-width: 100%;
+    max-width: 65%;
     height: auto;
+}
+
+@media(max-width: 900px) {
+    .post-body img {
+        max-width: 100%;
+    }
 }
 
 .post-body a {
@@ -48,9 +54,8 @@
 }
 
 .post-body pre {
-    margin: 40px;
+    margin: 1% auto 20px auto;
     color: #999;
-    margin-bottom: 20px;
     border-radius: 3px;
     padding: 6px
 }
