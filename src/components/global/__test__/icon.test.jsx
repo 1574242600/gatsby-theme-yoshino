@@ -9,13 +9,13 @@ describe("Icon 组件", () => {
 
     it("快照", () => {
         const tree = renderer
-            .create(<Icon src={ "/logo/start" } />)
+            .create(<Icon path={ "/logo/start" } />)
             .toJSON();
         expect(tree).toMatchSnapshot();
     });
 
     it("当 加载矢量图成功时", (done) => {
-        const wrapper = shallow(<Icon src={ "/logo/succeed" } />);
+        const wrapper = shallow(<Icon path={ "/logo/succeed" } />);
         setTimeout(() => {
             wrapper.update();
         }, 50);
@@ -28,7 +28,7 @@ describe("Icon 组件", () => {
     });
 
     it("当 加载矢量图失败时", (done) => {
-        const wrapper = shallow(<Icon src={ "/logo/fail" } />);
+        const wrapper = shallow(<Icon path={ "/logo/fail" } />);
 
         setTimeout(() => {
             wrapper.update();

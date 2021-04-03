@@ -1,3 +1,5 @@
+import getMdSvgHtml from "./other/getMdSvgHtml";
+
 export const isLg = typeof window !== "undefined" && window.innerWidth >= 992;
 
 export function isMobile() {
@@ -26,3 +28,5 @@ function formatId(text) {
     text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9-])/g, "");
     return text.toLowerCase();
 }
+
+export { getMdSvgHtml };

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../../icon";
+import { getMdSvgHtml } from "../../../../global";
 
 function dateToString(date) {
     const time = new Date( date );
@@ -15,13 +16,13 @@ export default function Time(props) {
     return (
         <React.Fragment>
             <span>
-                <Icon src='/md/today' />{" 发表于 "}
+                <Icon html={getMdSvgHtml("/md/today")} />{" 发表于 "}
                 <time dateTime={ date } itemProp="dateCreated datePublished">{ dateToString(date) }</time>
             </span>|
 
             {update && 
                 <span>
-                    <Icon src='/md/update' />{" 更新于 "}
+                    <Icon html={getMdSvgHtml("/md/update")} />{" 更新于 "}
                     <time dateTime={ update } itemProp="dateModified">{ dateToString(update) }</time>
                 </span>
             }

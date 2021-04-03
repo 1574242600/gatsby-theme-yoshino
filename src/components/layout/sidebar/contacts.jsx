@@ -25,7 +25,7 @@ function renderContact(name, url) {
     return (
         <Contact key={ name } title={ name } url={ url }>
             <Icon
-                src={ `/logo/${name}` }
+                path={ `/logo/${name}` }
             />
         </Contact>
     );

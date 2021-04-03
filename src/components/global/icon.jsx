@@ -45,18 +45,21 @@ export default function Icon(props) {
             }`
     );
 
-    const { src, className, ...other } = props;
-    const [ svgHtml, setSvgHtml] = useState("");
+    const { path, html, className, ...other } = props;
+
+    const [ svgHtml, setSvgHtml ] = useState(html);
 
     useEffect(() => {
-        fetchSvg(`${url}/icon${src}.svg`)
-            .then((data) => (typeof data === "string") ? data : data.text())
-            .then((svgHtml) => {
-                setSvgHtml(svgHtml);
-            }).catch((e) => {
-                if (e) { console.error(e); }
-                setSvgHtml( "load icon error");
-            });
+        if (path !== undefined) {
+            fetchSvg(`${url}/icon${path}.svg`)
+                .then((data) => (typeof data === "string") ? data : data.text())
+                .then((svgHtml) => {
+                    setSvgHtml(svgHtml);
+                }).catch((e) => {
+                    if (e) { console.error(e); }
+                    setSvgHtml("load icon error");
+                });
+        }
     }, []);
 
     return (
@@ -74,5 +77,10 @@ export default function Icon(props) {
 
 Icon.propTypes = {
     className: PropTypes.string,
-    src: PropTypes.string
+    path: PropTypes.string,
+    html: PropTypes.string
+};
+
+Icon.defaultProps = {
+    html: ""
 };
