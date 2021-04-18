@@ -52,14 +52,6 @@ module.exports = {
             resolve: "gatsby-transformer-remark",
             options: {
                 excerpt_separator: "<!--more-->",
-                plugins: [{
-                    resolve: "gatsby-remark-vscode",
-                    options: {
-                        theme: "dracula-theme-from-intellij",
-                        extensions: ["dracula-theme-from-intellij"],
-                        wrapperClassName: "code-line"
-                    }
-                }]
             }
         },
         {
