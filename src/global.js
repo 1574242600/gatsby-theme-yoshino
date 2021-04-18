@@ -1,5 +1,3 @@
-import getMdSvgHtml from "./other/getMdSvgHtml";
-
 export const isLg = typeof window !== "undefined" && window.innerWidth >= 992;
 
 export function isMobile() {
@@ -10,23 +8,3 @@ export function isMobile() {
     }
     return false;
 }
-
-export function addLazyLoadImg(htmlStr) {
-    return htmlStr.replace(/<img src=/, "<img class=\"lazyload\" data-src=");
-}
-
-export function addTitleId(htmlStr) {
-    return htmlStr.replace(/<h([1-6]{1})>([\s\S]+?)<\/h[1-6]{1}>/g, (_, p1, p2) => {
-        return `<h${p1} id="${ formatId(p2) }">${p2}</h${p1}>`;
-    });
-}
-
-function formatId(text) {
-    text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9])$/g, "");
-    text = text.trim(); 
-    text = text.replace(/\s+/g, "-");
-    text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9-])/g, "");
-    return text.toLowerCase();
-}
-
-export { getMdSvgHtml };

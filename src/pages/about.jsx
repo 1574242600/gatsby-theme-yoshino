@@ -4,7 +4,6 @@ import PostStyle from "../templates/style/post.module.css";
 import PostHead from "components/global/postHead";
 import Comment from "components/post/comment";
 import Seo from "components/global/seo";
-import { addLazyLoadImg, addTitleId } from "../global";
 import { graphql } from "gatsby";
 
 export default function About(props) {
@@ -28,7 +27,7 @@ export default function About(props) {
 
             <div className={ PostStyle.post }>
                 <PostHead info={ frontmatter } />
-                <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: addTitleId(addLazyLoadImg(html)) } }></div>
+                <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: html } }></div>
             </div>
 
             <div className={ PostStyle.comment }>

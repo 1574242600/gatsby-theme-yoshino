@@ -6,7 +6,6 @@ import PostNav from "components/post/postNav";
 import Comment from "components/post/comment";
 import Drag from "components/global/drag";
 import Seo from "components/global/seo";
-import { addLazyLoadImg, addTitleId } from "../global";
 import { graphql } from "gatsby";
 
 export default function Post(props) {
@@ -43,7 +42,7 @@ export default function Post(props) {
                             <PostNav navHtml={ navHtml } />
                         </Drag>
                 }
-                <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: addTitleId(addLazyLoadImg(html)) } }></div>
+                <div className={ "post-body" } dangerouslySetInnerHTML={ { __html: html } }></div>
             </div>
 
 
