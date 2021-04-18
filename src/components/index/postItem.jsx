@@ -17,14 +17,14 @@ export default function PostItem(props) {
             }`
     );
 
-    const { frontmatter , timeToRead, excerpt, fields: { slug } } = props.data;
+    const { frontmatter , timeToRead, excerptHtml, fields: { slug } } = props.data;
     frontmatter.timeToRead = timeToRead;
     
     return (
         <div className={ PostItemStyle.postItem }> 
             <PostHead info={ frontmatter } />
 
-            <div className={"post-body"} dangerouslySetInnerHTML={{ __html: excerpt }}></div>
+            <div className={"post-body"} dangerouslySetInnerHTML={{ __html: excerptHtml }}></div>
             <div className={ PostItemStyle.moreButton }>
                 <Button type='primary'>
                     <Link to={ url + slug }>阅读更多</Link>

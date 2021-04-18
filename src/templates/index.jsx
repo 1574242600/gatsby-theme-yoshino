@@ -75,7 +75,7 @@ export const query = graphql`
                 node {
                     id
                     timeToRead
-                    excerpt(format: HTML)
+                    excerptHtml
                     frontmatter {
                         date
                         tags

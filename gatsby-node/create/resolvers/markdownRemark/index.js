@@ -11,6 +11,12 @@ module.exports = () => {
                     return getNavHtml(source.rawMarkdownBody);
                 }
             },
+            excerptHtml: {
+                type: "String",
+                resolve: (source) => {
+                    return getHtml(source.rawMarkdownBody.split("<!--more-->")[0]);
+                }
+            },
             html: {
                 type: "String",
                 resolve: (source) => {
