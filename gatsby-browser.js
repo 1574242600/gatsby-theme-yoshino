@@ -10,6 +10,8 @@ import "./src/styles/medium-zoom.css";
 import "./src/styles/typography.css";
 import "./src/styles/typography-dark.css";
 
+import "prismjs/themes/prism-tomorrow.css";
+
 import "yoshino/lib/Menu/style/index";
 import "yoshino/lib/Button/style/index";
 import "yoshino/lib/Tooltip/style/index";

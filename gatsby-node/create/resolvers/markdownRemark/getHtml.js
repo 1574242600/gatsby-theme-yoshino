@@ -1,7 +1,11 @@
 /* eslint-disable no-undef */
 const marked = require("marked");
+const prism = require("prismjs");
+const loadLanguages = require("prismjs/components/");
 const { cleanUrl } = require("marked/src/helpers");
 const { formatId } = require(require.resolve("../../../utils/index"));
+
+
 
 const renderer = {
     heading(text, level) {
@@ -27,7 +31,20 @@ const renderer = {
 };
 
 
+loadLanguages();
+
+
 module.exports = async function getHTML(markdownBody) {
+    marked.setOptions({
+        highlight: function (code, lang) {
+            if (prism.languages[lang]) {
+                return prism.highlight(code, prism.languages[lang], lang);
+            } else {
+                return code;
+            }
+        }
+    });
+
     marked.use({ renderer });
 
     return marked(markdownBody);
