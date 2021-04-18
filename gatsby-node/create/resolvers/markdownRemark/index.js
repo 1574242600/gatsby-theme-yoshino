@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const toc = require(require.resolve("./toc"));
-const getHeadings = require(require.resolve("./getHeadings"));
+const getHeadings = require(require.resolve("./toc/getHeadings"));
 
 module.exports = () => {
     const resolvers = {
