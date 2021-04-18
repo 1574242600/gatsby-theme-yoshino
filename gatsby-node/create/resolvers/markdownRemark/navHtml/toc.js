@@ -1,13 +1,7 @@
 /* eslint-disable no-undef */
-module.exports = function toc(data, options = {}) {
+const { formatId } = require(require.resolve("../../../../utils/index"));
 
-    function formatId(text) {
-        text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9])$/g, "");
-        text = text.trim();
-        text = text.replace(/\s+/g, "-");
-        text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9-])/g, "");
-        return text.toLowerCase();
-    }
+module.exports = function toc(data, options = {}) {
 
     if (data === null || (data instanceof Array && data.length < 1)) { return null; }
 

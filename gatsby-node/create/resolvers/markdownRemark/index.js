@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-const toc = require(require.resolve("./toc"));
-const getHeadings = require(require.resolve("./toc/getHeadings"));
+const getNavHtml = require(require.resolve("./getNavHtml"));
+
 
 module.exports = () => {
     const resolvers = {
@@ -8,9 +8,10 @@ module.exports = () => {
             navHtml: {
                 type: "String",
                 resolve: (source) => {
-                    return toc(getHeadings(source.rawMarkdownBody));
+                    return getNavHtml(source.rawMarkdownBody);
                 }
-            }
+            },
+         
         }
     };
 
