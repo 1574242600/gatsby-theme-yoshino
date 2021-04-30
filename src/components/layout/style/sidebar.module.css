@@ -38,7 +38,7 @@
 
 @-moz-document url-prefix() { 
     .sidebar { 
-        height: calc(100vh - 57px);
+        height: calc(100vh - 67px);
     } 
 }
 
