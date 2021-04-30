@@ -35,6 +35,7 @@ module.exports = {
         "gatsby-transformer-json",
         "gatsby-plugin-offline",
         "gatsby-plugin-react-helmet",
+        "gatsby-transformer-inline-svg",
         {
             resolve: "gatsby-plugin-layout",
             options: {
@@ -46,6 +47,13 @@ module.exports = {
             options: {
                 name: "src",
                 path: "src/pages",
+            },
+        },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "static",
+                path: "static",
             },
         },
         {
