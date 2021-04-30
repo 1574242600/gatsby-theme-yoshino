@@ -35,7 +35,7 @@ module.exports = {
         "gatsby-transformer-json",
         "gatsby-plugin-offline",
         "gatsby-plugin-react-helmet",
-        "gatsby-transformer-inline-svg",
+        "@z1574242600/gatsby-transformer-inline-svg-v2",
         {
             resolve: "gatsby-plugin-layout",
             options: {

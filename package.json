@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
+    "@z1574242600/gatsby-transformer-inline-svg-v2": "^1.1.1",
     "animejs": "^3.2.1",
     "babel-eslint": "^10.1.0",
     "enzyme": "^3.11.0",
