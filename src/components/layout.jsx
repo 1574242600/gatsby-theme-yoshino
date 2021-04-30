@@ -111,7 +111,7 @@ export default class Layout extends React.Component {
                 } }
 
                 leave={ {
-                    opacity: 1,
+                    opacity: 0.5,
                     transform: "transition: opacity 0.3s",
                     config: {
                         duration: 0
