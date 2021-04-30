@@ -15,13 +15,13 @@ export default function Time(props) {
     return (
         <React.Fragment>
             <span>
-                <Icon html={"/md/today"} />{" 发表于 "}
+                <Icon path={"/md/today"} />{" 发表于 "}
                 <time dateTime={ date } itemProp="dateCreated datePublished">{ dateToString(date) }</time>
             </span>|
 
             {update && 
                 <span>
-                    <Icon html={"/md/update"} />{" 更新于 "}
+                    <Icon path={"/md/update"} />{" 更新于 "}
                     <time dateTime={ update } itemProp="dateModified">{ dateToString(update) }</time>
                 </span>
             }

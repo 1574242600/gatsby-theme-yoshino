@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import * as IconStyle from "./style/icon.module.css";
 
+function filterSvgHtml(source, path) {
+    for (const { node: svgFile } of source) {
+        if (svgFile.relativePath === `icon${path}.svg`) {
+            return svgFile.childrenInlineSvg[0].content;
+        }
+    }
+
+    return "icon error";
+}
+
 export default function Icon(props) {
-    const { site: { siteMetadata: { url } } } = useStaticQuery(
+    const { allFile: { edges: allSvg  } } = useStaticQuery(
         graphql`
-            query {
-                site {
-                    siteMetadata {
-                        url
+                query {
+                    allFile(filter: { relativePath: {regex: "/^icon/"}}) {
+                        edges {
+                            node {
+                                relativePath
+                                childrenInlineSvg {
+                                    content
+                                }
+                            }
+                        }
                     }
-                }
-            }`
+                }`
     );
 
-    const { path, html, className, ...other } = props;
-
-    const [ svgHtml, setSvgHtml ] = useState(html);
-
-    useEffect(() => {
-        if (path !== undefined) {
-            fetchSvg(`${url}/icon${path}.svg`)
-                .then((data) => (typeof data === "string") ? data : data.text())
-                .then((svgHtml) => {
-                    setSvgHtml(svgHtml);
-                }).catch((e) => {
-                    if (e) { console.error(e); }
-                    setSvgHtml("load icon error");
-                });
-        }
-    }, []);
+    const { path, className, ...other } = props;
+    const svgHtml = filterSvgHtml(allSvg, path);
 
     return (
         <i
@@ -45,12 +46,8 @@ export default function Icon(props) {
     );
 }
 
+
 Icon.propTypes = {
     className: PropTypes.string,
     path: PropTypes.string,
-    html: PropTypes.string
-};
-
-Icon.defaultProps = {
-    html: ""
 };
