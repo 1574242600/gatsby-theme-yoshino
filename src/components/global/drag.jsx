@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
-import DragStyle from "./style/drag.module.css";
+import * as DragStyle from "./style/drag.module.css";
 
 function handleMouseDown(e, clickRef, moveRef, setDragging, setRefXY) {
     const clickElem = clickRef.current;

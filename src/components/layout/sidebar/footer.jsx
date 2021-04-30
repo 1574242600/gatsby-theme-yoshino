@@ -1,6 +1,6 @@
 import React from "react";
 import Since from "./footer/since";
-import FooterStyle from "./style/footer.module.css";
+import * as FooterStyle from "./style/footer.module.css";
 import { useStaticQuery, graphql } from "gatsby";
 
 export default function AuthorCard() {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import PostStyle from "./style/post.module.css";
+import * as PostStyle from "./style/post.module.css";
 import PostHead from "components/global/postHead";
 import PostNav from "components/post/postNav";
 import Comment from "components/post/comment";

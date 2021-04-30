@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PostHead from "../global/postHead";
 import Button from "yoshino/lib/Button/index";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import PostItemStyle from "./style/postItem.module.css";
+import * as PostItemStyle from "./style/postItem.module.css";
 
 export default function PostItem(props) {
     const { site: { siteMetadata: { url } } } = useStaticQuery(

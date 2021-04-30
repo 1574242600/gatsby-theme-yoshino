@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
-import ArchivesStyle from "./style/archives.module.css";
+import * as ArchivesStyle from "./style/archives.module.css";
 import Seo from "components/global/seo";
 
 export default class Archives extends React.Component {

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AauthorCardStyle from "../style/authorCard.module.css";
+import * as AauthorCardStyle from "../style/authorCard.module.css";
 
 
 export default function Name(props) {

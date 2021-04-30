@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, navigate } from "gatsby";
 import Pagination from "yoshino/lib/Pagination/index";
-import IndexStyle from "./style/index.module.css";
+import * as IndexStyle from "./style/index.module.css";
 import PostItem from "components/index/postItem";
 import Seo from "components/global/seo";
 

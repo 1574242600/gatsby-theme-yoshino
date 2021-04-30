@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PostStyle from "../templates/style/post.module.css";
+import * as PostStyle from "../templates/style/post.module.css";
 import PostHead from "components/global/postHead";
 import Comment from "components/post/comment";
 import Seo from "components/global/seo";

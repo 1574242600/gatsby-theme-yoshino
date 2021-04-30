@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { TransitionProvider, TransitionViews } from "gatsby-plugin-transitions";
-import LayoutStyle from "./layout/style/layout.module.css";
+import * as LayoutStyle from "./layout/style/layout.module.css";
 import Header from "./layout/header";
 import Sidebar from "./layout/sidebar";
 import { isLg } from "../global";

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import LinkStyle from "./style/link.module.css";
+import * as LinkStyle from "./style/link.module.css";
 
 export default class Link extends React.Component {
     constructor (props) {

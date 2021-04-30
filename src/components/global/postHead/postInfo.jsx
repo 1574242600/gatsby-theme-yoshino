@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Time from "./postInfo/time";
-import PostInfoStyle from "./style/postInfo.module.css";
+import * as PostInfoStyle from "./style/postInfo.module.css";
 
 export default function PostInfo(props) {
     const { site: { siteMetadata: { url } } } = useStaticQuery(

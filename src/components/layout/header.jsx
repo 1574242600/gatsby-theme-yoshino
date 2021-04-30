@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import ToolbarStyle from "./style/toolbar.module.css";
+import * as ToolbarStyle  from "./style/toolbar.module.css";
 import Icon from "../global/icon";
-import { getMdSvgHtml } from "../../global";
 
 export default function Header(props) {
     const data = useStaticQuery(
@@ -21,14 +20,14 @@ export default function Header(props) {
     return (
         <header className={ ToolbarStyle.toolbar + " " + ToolbarStyle.toolbarShadow } >
             <Icon
-                html={getMdSvgHtml("/md/menu")}
+                path={"/md/menu"}
                 style={{ float: "left" }}
                 className={ ToolbarStyle.icon }
                 onClick={ props.onMenuIconClick }
             />
             <span className={ ToolbarStyle.title }>{ data.site.siteMetadata.title }</span>
             <Icon
-                html={getMdSvgHtml("/md/brightness_6")}
+                path={"/md/brightness_6"}
                 style={{ float: "right" }}
                 className={ ToolbarStyle.icon }
                 onClick={ props.onDarkIconClick }

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PostHeadStyle from "./style/postHead.module.css";
+import * as PostHeadStyle from "./style/postHead.module.css";
 import PostInfo from "./postHead/postInfo";
 
 export default function PostHead(props) {

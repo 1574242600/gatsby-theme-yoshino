@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import ContactStyle from "./style/contacts.module.css";
+import * as ContactStyle from "./style/contacts.module.css";
 import Contact from "./contacts/contact";
 import Icon from "../../global/icon";
 import { isMobile as getIsMobile } from "../../../global";

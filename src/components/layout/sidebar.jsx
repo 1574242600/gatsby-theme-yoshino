@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import AuthorCard from "./sidebar/authorCard";
-import SidebarStyle from "./style/sidebar.module.css";
+import * as SidebarStyle from "./style/sidebar.module.css";
 import Overlay from "./sidebar/overlay";
 import Menu from "./sidebar/menu";
 import Contacts from "./sidebar/contacts";
