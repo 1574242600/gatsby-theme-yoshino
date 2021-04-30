@@ -55,15 +55,11 @@
 
 .post-body pre {
     margin: 1% auto 20px auto;
-    color: #999;
-    border-radius: 3px;
-    padding: 6px
 }
 
 .post-body pre code {
-    line-height: 1.8;
+    padding: 1%;
     display: block;
-    overflow-x: auto;
     background-color: #2b2b2b;
 }
 
