@@ -1,14 +1,14 @@
 ## 0.1.8
-gatsby v2 to v3
-优化 svg 加载
+gatsby v2 to v3  
+优化 svg 加载  
 开始使用 marked 解析 md 文件，以自定义功能
 - 图片懒加载
 - heading 添加 id 属性
 - 新的代码高亮
 
 ## 0.1.7
-优化 svg 加载
-修复因ctrl+c ctrl+v时未考虑 toolbar 所引起的滚动距离问题
+优化 svg 加载  
+修复因ctrl+c ctrl+v时未考虑 toolbar 所引起的滚动距离问题  
 - 判断滚动到标题错误
 - 动画滚动距离错误
 
