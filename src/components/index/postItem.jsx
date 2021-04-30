@@ -2,21 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import PostHead from "../global/postHead";
 import Button from "yoshino/lib/Button/index";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 import * as PostItemStyle from "./style/postItem.module.css";
 
 export default function PostItem(props) {
-    const { site: { siteMetadata: { url } } } = useStaticQuery(
-        graphql`
-            query {
-                site {
-                    siteMetadata {
-                        url
-                    }
-                }
-            }`
-    );
-
     const { frontmatter , timeToRead, excerptHtml, fields: { slug } } = props.data;
     frontmatter.timeToRead = timeToRead;
     
@@ -27,7 +16,7 @@ export default function PostItem(props) {
             <div className={"post-body"} dangerouslySetInnerHTML={{ __html: excerptHtml }}></div>
             <div className={ PostItemStyle.moreButton }>
                 <Button type='primary'>
-                    <Link to={ url + slug }>阅读更多</Link>
+                    <Link to={ slug }>阅读更多</Link>
                 </Button>
             </div>
         </div>

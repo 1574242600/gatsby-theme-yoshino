@@ -23,18 +23,9 @@ export default class Menu extends React.Component {
     }
 
     renderMainItems() {
-        const { activeKey } = this.state;
-        const updateActiveKey = this.updateActiveKey;
-
         const itemStyle = { overflow: "visible" };
         return ["主页", "归档", "关于", "朋友"].map((title, index) => {
             return <YMenu.Item 
-                onClick={() => { 
-                    if (activeKey == index) {
-                        updateActiveKey(index + "" );
-                        navigate(Menu.paths[index]);
-                    }
-                }} 
                 key={ index } 
                 style={ itemStyle }
             >{ title }</YMenu.Item>;

@@ -43,7 +43,7 @@ About.propTypes = {
 
 export const query = graphql`
     query aboutQuery {
-        markdownRemark(fileAbsolutePath: {regex: "/(?<=about)\\\\.md$/"}) {
+        markdownRemark(fileAbsolutePath: {regex: "/(?<=about)\\.md$/"}) {
             frontmatter { 
                 title
             }

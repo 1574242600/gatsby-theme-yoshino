@@ -1,20 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 import Time from "./postInfo/time";
 import * as PostInfoStyle from "./style/postInfo.module.css";
 
 export default function PostInfo(props) {
-    const { site: { siteMetadata: { url } } } = useStaticQuery(
-        graphql`
-            query {
-                site {
-                    siteMetadata {
-                        url
-                    }
-                }
-            }`
-    );
 
     const { date, update, timeToRead, tags } = props.info;
 
@@ -23,7 +13,7 @@ export default function PostInfo(props) {
         return tags.map(
             (tag, index) => (
                 <React.Fragment key={ tag }>
-                    <Link to={`${ url }/tag/${ tag }`}>{ tag }</Link> 
+                    <Link to={`/tag/${ tag }`}>{ tag }</Link> 
                     { tags[index + 1] === undefined ? "" : ", " }
                 </React.Fragment>
             )

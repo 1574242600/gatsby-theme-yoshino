@@ -75,7 +75,7 @@ Archives.propTypes = {
 
 export const query = graphql`
     query archivesQuery{
-        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC} filter: {fileAbsolutePath: {regex: "/(?<!about)\\\\.md$/"}}) {
+        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC} filter: {fileAbsolutePath: {regex: "/(?<!about)\\.md$/"}}) {
             edges {
                 node {
                     id
